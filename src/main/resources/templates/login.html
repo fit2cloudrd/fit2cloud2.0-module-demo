@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="loginApp" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="LoginConstants" type="com.fit2cloud.boot.common.constants.LoginConstants"*/-->
+<!--/*@thymesVar id="message" type="java.lang.String"*/-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/png" th:href="@{${LoginConstants.SHORTCUT}}" sizes="16x16">
+    <title>登录 FIT2CLOUD
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" th:href="@{'resource/basic/bootstrap/css/bootstrap.min.css'}">
+    <link rel="stylesheet" th:href="@{'resource/basic/font-awesome/css/font-awesome.min.css'}">
+    <link rel="stylesheet" th:href="@{'resource/fit2cloud/css/bootstrap-style.css'}">
+    <link rel="stylesheet" th:href="@{'resource/fit2cloud/css/fit2cloud-style.css'}">
+    <link rel="stylesheet" th:href="@{'resource/fit2cloud/css/login-style.css'}">
+
+    <script src="resource/basic/angular/angular.min.js"></script>
+    <script src="resource/project/js/login.js"></script>
+</head>
+
+<body class="login_body">
+<div class="login-dialog" ng-controller="LoginCtrl">
+    <div class="login-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="login-logo">
+                    <img th:src="@{${LoginConstants.LOGO}}" alt="logo">
+                </div>
+                <div class="login-title">用户登录</div>
+                <form name="loginForm" class="login-form" action="login" method="post" novalidate="novalidate">
+                    <div class="form-group">
+                        <div class="login-input">
+                            <div class="login-input-prefix">
+                                <i class="fa fa-envelope-o"></i>
+                            </div>
+
+                            <input type="text" class="login-input-control" autofocus autocomplete="off" name="email" required placeholder="邮箱"
+                                   ng-class="class.email" ng-model="user.email" ng-blur="check('email')">
+
+                            <div ng-if="loginForm.email.$error.required && !valid.email" class="login-error-msg">
+                                <span>该项为必填项目</span>
+                            </div>
+                            <div class="login-input-postfix">
+                                <img src="resource/fit2cloud/img/login/error.svg" ng-if="loginForm.email.$invalid && !valid.email">
+                                <img src="resource/fit2cloud/img/login/correct.svg" ng-if="loginForm.email.$valid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="login-input">
+                            <div class="login-input-prefix">
+                                <i class="fa fa-lock"></i>
+                            </div>
+
+                            <input type="password" class="login-input-control" autocomplete="off" name="password" placeholder="密码" required
+                                   ng-class="password.class" ng-model="user.password" ng-blur="check('password')">
+
+                            <div ng-if="loginForm.password.$error.required && !valid.password" class="login-error-msg">
+                                <span>该项为必填项目</span>
+                            </div>
+                            <div class="login-input-postfix">
+                                <img src="resource/fit2cloud/img/login/error.svg" ng-if="loginForm.password.$invalid && !valid.password">
+                                <img src="resource/fit2cloud/img/login/correct.svg" ng-if="loginForm.password.$valid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="login-msg" th:text="${message}"></div>
+                        <button type="button" class="btn btn-login" ng-click="validate()">登录</button>
+                        <button id="submit" type="submit" class="btn btn-login" ng-show="false">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

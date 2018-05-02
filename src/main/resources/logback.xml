@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+	<property resource="properties/log.properties" />
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %5p %40.40c:%4L - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="debugAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<File>${log.dir}/boot_demo_debug.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.dir}/history/boot_demo_debug.%d{yyyyMMdd}-%i.log
+			</FileNamePattern>
+			<maxHistory>30</maxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy
+					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50MB</maxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="infoAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<File>${log.dir}/boot_demo_info.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.dir}/history/boot_demo_info.%d{yyyyMMdd}-%i.log
+			</FileNamePattern>
+			<maxHistory>30</maxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy
+					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50MB</maxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="errorAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<File>${log.dir}/boot_demo_error.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.dir}/history/boot_demo_error.%d{yyyyMMdd}-%i.log
+			</FileNamePattern>
+			<maxHistory>30</maxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy
+					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50MB</maxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="warnAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<File>${log.dir}/boot_demo_warn.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.dir}/history/boot_demo_warn.%d{yyyyMMdd}-%i.log
+			</FileNamePattern>
+			<maxHistory>30</maxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy
+					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50MB</maxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="loginAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+		</filter>
+		<File>${log.dir}/boot_demo_login.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.dir}/history/boot_demo_login.%d{yyyyMMdd}.log
+			</FileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%d %-5level - %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="consoleAsyncAppender" class="ch.qos.logback.classic.AsyncAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<queueSize>10000</queueSize>
+		<appender-ref ref="console" />
+	</appender>
+
+	<appender name="debugAsyncAppender" class="ch.qos.logback.classic.AsyncAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<queueSize>10000</queueSize>
+		<appender-ref ref="debugAppender" />
+	</appender>
+
+	<appender name="infoAsyncAppender" class="ch.qos.logback.classic.AsyncAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<queueSize>10000</queueSize>
+		<appender-ref ref="infoAppender" />
+	</appender>
+
+	<appender name="errorAsyncAppender" class="ch.qos.logback.classic.AsyncAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<queueSize>10000</queueSize>
+		<includeCallerData>true</includeCallerData>
+		<appender-ref ref="errorAppender" />
+	</appender>
+
+	<appender name="warnAsyncAppender" class="ch.qos.logback.classic.AsyncAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<queueSize>10000</queueSize>
+		<includeCallerData>true</includeCallerData>
+		<appender-ref ref="warnAppender" />
+	</appender>
+	
+	<appender name="loginAsyncAppender" class="ch.qos.logback.classic.AsyncAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<queueSize>10000</queueSize>
+		<includeCallerData>true</includeCallerData>
+		<appender-ref ref="loginAppender" />
+	</appender>
+
+
+	<root level="INFO">
+		<appender-ref ref="infoAsyncAppender" />
+	</root>
+	
+	<logger name="loginLogger" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="loginAsyncAppender" />
+	</logger>
+
+	<logger name="com.fit2cloud" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="infoAsyncAppender" />
+		<appender-ref ref="warnAsyncAppender" />
+		<appender-ref ref="errorAsyncAppender" />
+	</logger>
+
+    <!--避免第三方日志刷屏-->
+    <logger name="org.restlet" level="WARN"/>
+
+	<logger name="com.fit2cloud.demo.dao" level="${log.level.sql}">
+		<appender-ref ref="${log.out}" />
+	</logger>
+
+</configuration>

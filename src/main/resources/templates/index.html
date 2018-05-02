@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html ng-app="app" ng-cloak xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16">
+    <title>Demo</title>
+    <!--必要CSS-->
+    <link rel="stylesheet" th:href="@{'library/external/angular-material/angular-material.min.css'}">
+    <link rel="stylesheet" th:href="@{'library/external/angular-material/md-data-table.min.css'}">
+    <link rel="stylesheet" th:href="@{'library/external/font-awesome/web-fonts-with-css/css/fontawesome-all.css'}">
+    <link rel="stylesheet" th:href="@{'library/external/material-icons/material-icons.css'}">
+    <link rel="stylesheet" th:href="@{'library/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
+
+    <!--可选CSS-->
+
+    <!--项目CSS-->
+    <link rel="stylesheet" th:href="@{'project/css/project-style.css?t='+${timestamp}}">
+</head>
+
+<body>
+
+<div layout="column">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button f2c-icon-button">
+                <i class="material-icons md-24 md-light">menu</i>
+            </md-button>
+
+            <h2 flex md-truncate>FIT2CLOUD CMP</h2>
+        </div>
+    </md-toolbar>
+
+    <div class="container" layout="row" flex>
+        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+            <md-toolbar class="md-theme-left">
+                <h1 class="md-toolbar-tools">Sidenav Left</h1>
+            </md-toolbar>
+            <md-content layout-padding>
+                <md-button class="md-primary">
+                    Close Sidenav Left
+                </md-button>
+            </md-content>
+
+        </md-sidenav>
+        <md-content id="content" flex></md-content>
+    </div>
+</div>
+
+<!--必要JS-->
+<script th:src="@{'library/external/jquery/jquery.min.js'}"></script>
+<script th:src="@{'library/external/angular/angular.min.js'}"></script>
+<script th:src="@{'library/external/angular/angular-animate.min.js'}"></script>
+<script th:src="@{'library/external/angular/angular-aria.min.js'}"></script>
+<script th:src="@{'library/external/angular/angular-messages.min.js'}"></script>
+<script th:src="@{'library/external/angular-material/angular-material.min.js'}"></script>
+<script th:src="@{'library/external/angular-material/md-data-table.min.js'}"></script>
+
+<!--可选JS-->
+<script th:src="@{'library/external/echarts/echarts.min.js'}"></script>
+<script th:src="@{'library/external/echarts/fit2cloud-echarts-theme.js?t='+${timestamp}}"></script>
+
+<!--项目JS-->
+<script th:src="@{'project/js/app.js'}"></script>
+<script th:src="@{'project/js/app.js'}"></script>
+
+</body>
+</html>
