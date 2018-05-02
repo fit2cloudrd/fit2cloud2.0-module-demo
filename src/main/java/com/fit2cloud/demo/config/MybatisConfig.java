@@ -38,10 +38,10 @@ public class MybatisConfig {
     @Primary
     public DataSource dataSource() throws Exception {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setUser(PropertiesConfigurer.getProperty("rdb.user"));
-        dataSource.setDriverClass(PropertiesConfigurer.getProperty("rdb.driver"));
-        dataSource.setPassword(PropertiesConfigurer.getProperty("rdb.password"));
-        dataSource.setJdbcUrl(PropertiesConfigurer.getProperty("rdb.url"));
+        dataSource.setUser(env.getProperty("rdb.user"));
+        dataSource.setDriverClass(env.getProperty("rdb.driver"));
+        dataSource.setPassword(env.getProperty("rdb.password"));
+        dataSource.setJdbcUrl(env.getProperty("rdb.url"));
         dataSource.setMaxIdleTime(1800);
         dataSource.setAcquireIncrement(3);
         dataSource.setInitialPoolSize(3);

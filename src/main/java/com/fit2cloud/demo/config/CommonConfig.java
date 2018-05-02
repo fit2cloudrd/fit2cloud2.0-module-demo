@@ -14,19 +14,6 @@ import org.springframework.core.io.support.ResourcePatternResolver;
  */
 @Configuration
 public class CommonConfig {
-    @Bean
-    public PropertiesConfigurer propertiesConfigurer() throws Exception {
-        PropertiesConfigurer propertiesConfigurer = new PropertiesConfigurer();
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        propertiesConfigurer.setIgnoreResourceNotFound(true);
-        Resource[] classPathResources = resolver.getResources("classpath*:properties/*.properties");
-        Resource applicationResource = resolver.getResource("classpath:application.properties");
-        Resource fileSystemResource = resolver.getResource("file:/opt/fit2cloud/fit2cloud.properties");
-        //
-        Resource[] resources = ArrayUtils.addAll(classPathResources, fileSystemResource, applicationResource);
-        propertiesConfigurer.setLocations(resources);
-        return propertiesConfigurer;
-    }
 
     @Bean
     public CommonBeanFactory commonBeanFactory() {
