@@ -54,6 +54,16 @@ body {
     background: rgba(255, 255, 255, .2);
 }
 
+/* frame */
+.f2c-frame {
+    border: none;
+}
+
+/* subheader */
+.f2c-sub-header {
+    background: #FFF;
+}
+
 /*!
  * 产品CSS，项目CSS禁止修改或添加该CSS内容，否则被覆盖后果自负
 **/

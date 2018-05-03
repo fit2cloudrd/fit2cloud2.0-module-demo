@@ -16,11 +16,20 @@ public class DemoController {
     private static final Long timestamp = System.currentTimeMillis();
 
     /**
-     * 跳转到主页
+     * 跳转到无Header主页
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("timestamp", timestamp);
         return "index";
+    }
+
+    /**
+     * 跳转到有Header主页
+     */
+    @RequestMapping(value = "/local", method = RequestMethod.GET)
+    public String local(Model model) {
+        model.addAttribute("timestamp", timestamp);
+        return "local-index";
     }
 }
