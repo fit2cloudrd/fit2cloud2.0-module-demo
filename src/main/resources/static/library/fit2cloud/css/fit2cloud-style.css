@@ -59,9 +59,14 @@ body {
     border: none;
 }
 
-/* subheader */
+/* sub-header */
 .f2c-sub-header {
     background: #FFF;
+}
+
+/* list-item */
+.f2c-list-item-multi:not([disabled]):hover {
+    background-color: rgba(158, 158, 158, 0.2);
 }
 
 /*!

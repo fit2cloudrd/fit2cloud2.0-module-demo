@@ -18,30 +18,29 @@
     <link rel="stylesheet" th:href="@{'project/css/project-style.css?t='+${timestamp}}">
 </head>
 
-<body ng-app="MenuApp" ng-cloak>
-<div layout="column" layout-fill ng-controller="MenuCtrl">
-    <md-toolbar class="md-whiteframe-2dp">
-        <div class="md-toolbar-tools">
-            <md-button class="md-icon-button f2c-icon-button" ng-click="toggleMenu()">
-                <i class="material-icons md-24 md-light">menu</i>
-            </md-button>
+<body ng-app="ProjectApp" ng-cloak>
+<div layout="column" layout-fill>
+    <section layout="row" flex>
+        <md-sidenav class="md-sidenav-left" md-disable-backdrop md-whiteframe="4" md-is-locked-open="$mdMedia('gt-md')" md-component-id="left">
+            <md-toolbar>
+                <h2 class="md-toolbar-tools">自服务</h2>
+                <md-list>
+                    <md-list-item>
 
-            <h2 flex md-truncate>FIT2CLOUD CMP</h2>
-
-            <md-button class="md-icon-button f2c-icon-button">
-                <i class="material-icons md-24 md-light">person</i>
-            </md-button>
-        </div>
-    </md-toolbar>
-
-    <md-content layout="row" flex>
-        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="menu">
-            <md-list>
-                <module-menu ng-repeat="module in modules" module="module"></module-menu>
-            </md-list>
+                    </md-list-item>
+                </md-list>
+            </md-toolbar>
         </md-sidenav>
-        <iframe id="frame" flex class="f2c-frame" src=""></iframe>
-    </md-content>
+        <md-content flex>
+            <div layout="column" layout-align="top center">
+                <div>
+                    <md-button ng-click="toggleLeft()" class="md-raised">
+                        Toggle Sidenav
+                    </md-button>
+                </div>
+            </div>
+        </md-content>
+    </section>
 </div>
 
 <!--必要JS-->

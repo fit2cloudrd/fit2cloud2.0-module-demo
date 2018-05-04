@@ -32,7 +32,7 @@
     <md-content layout="row" flex>
         <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="menu">
             <md-list>
-                <module-menu ng-repeat="module in modules" module="module"></module-menu>
+                <module-menu ng-repeat="module in modules" module="module" toggle-menu="toggleMenu()"></module-menu>
             </md-list>
         </md-sidenav>
         <iframe id="frame" flex class="f2c-frame" src=""></iframe>
