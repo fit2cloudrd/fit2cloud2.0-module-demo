@@ -4,18 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="16x16">
-    <title>Demo</title>
-    <!--必要CSS-->
+    <title>FIT2CLOUD CMP</title>
+
     <link rel="stylesheet" th:href="@{'library/external/angular-material/angular-material.min.css'}">
     <link rel="stylesheet" th:href="@{'library/external/angular-material/md-data-table.min.css'}">
     <link rel="stylesheet" th:href="@{'library/external/font-awesome/web-fonts-with-css/css/fontawesome-all.css'}">
     <link rel="stylesheet" th:href="@{'library/external/material-icons/material-icons.css'}">
     <link rel="stylesheet" th:href="@{'library/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
-
-    <!--可选CSS-->
-
-    <!--项目CSS-->
-    <link rel="stylesheet" th:href="@{'project/css/project-style.css?t='+${timestamp}}">
 </head>
 
 <body ng-app="MenuApp" ng-cloak>
@@ -44,7 +39,6 @@
     </md-content>
 </div>
 
-<!--必要JS-->
 <script th:src="@{'library/external/jquery/jquery.min.js'}"></script>
 <script th:src="@{'library/external/angular/angular.min.js'}"></script>
 <script th:src="@{'library/external/angular/angular-animate.min.js'}"></script>
@@ -58,13 +52,6 @@
     window.appversion = [[${timestamp}]];
     /*]]>*/
 </script>
-
-<!--可选JS-->
-<script th:src="@{'library/external/echarts/echarts.min.js'}"></script>
-<script th:src="@{'library/external/echarts/fit2cloud-echarts-theme.js?t='+${timestamp}}"></script>
-
-<!--项目JS-->
-<script th:src="@{'project/js/app.js'}"></script>
 
 </body>
 </html>

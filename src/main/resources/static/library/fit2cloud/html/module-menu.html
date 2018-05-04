@@ -1,0 +1,6 @@
+<md-subheader class="f2c-sub-header" ng-if="$ctrl.module.title">{{$ctrl.module.title}}</md-subheader>
+<md-list-item ng-repeat="menu in $ctrl.module.menus" ng-click="$ctrl.navigateTo(menu)">
+    <md-icon md-font-icon="material-icons md-24" ng-bind="menu.icon"></md-icon>
+    <p>{{ menu.title }}</p>
+</md-list-item>
+<md-divider ng-if="$ctrl.module.divider"></md-divider>
