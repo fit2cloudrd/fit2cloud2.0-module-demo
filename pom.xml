@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fit2cloud</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>module-demo</artifactId>
+    <version>2.0.0</version>
     <packaging>jar</packaging>
 
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>fit2cloud2.0-module-demo</name>
+    <description>module demo project for fi2cloud2.0</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
