@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="16x16">
     <title>Demo</title>
     <!--必要CSS-->
-    <link rel="stylesheet" th:href="@{'library/external/angular-material/angular-material.min.css'}">
-    <link rel="stylesheet" th:href="@{'library/external/angular-material/md-data-table.min.css'}">
-    <link rel="stylesheet" th:href="@{'library/external/font-awesome/web-fonts-with-css/css/fontawesome-all.css'}">
-    <link rel="stylesheet" th:href="@{'library/external/material-icons/material-icons.css'}">
-    <link rel="stylesheet" th:href="@{'library/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
+    <link rel="stylesheet" th:href="@{'web-public/external/angular-material/angular-material.min.css'}">
+    <link rel="stylesheet" th:href="@{'web-public/external/angular-material/md-data-table.min.css'}">
+    <link rel="stylesheet" th:href="@{'web-public/external/font-awesome/web-fonts-with-css/css/fontawesome-all.css'}">
+    <link rel="stylesheet" th:href="@{'web-public/external/material-icons/material-icons.css'}">
+    <link rel="stylesheet" th:href="@{'web-public/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
 
     <!--可选CSS-->
 
@@ -24,34 +24,28 @@
         <md-sidenav class="md-sidenav-left" md-disable-backdrop md-whiteframe="4" md-is-locked-open="$mdMedia('gt-md')" md-component-id="left">
             <md-toolbar>
                 <h2 class="md-toolbar-tools">自服务</h2>
-                <md-list>
-                    <md-list-item>
-
-                    </md-list-item>
-                </md-list>
             </md-toolbar>
+            <md-list>
+                <md-list-item ui-sref="demo">
+                    <p>Demo</p>
+                </md-list-item>
+            </md-list>
         </md-sidenav>
         <md-content flex>
-            <div layout="column" layout-align="top center">
-                <div>
-                    <md-button ng-click="toggleLeft()" class="md-raised">
-                        Toggle Sidenav
-                    </md-button>
-                </div>
-            </div>
+            <ui-view></ui-view>
         </md-content>
     </section>
 </div>
 
 <!--必要JS-->
-<script th:src="@{'library/external/jquery/jquery.min.js'}"></script>
-<script th:src="@{'library/external/angular/angular.min.js'}"></script>
-<script th:src="@{'library/external/angular/angular-animate.min.js'}"></script>
-<script th:src="@{'library/external/angular/angular-aria.min.js'}"></script>
-<script th:src="@{'library/external/angular/angular-messages.min.js'}"></script>
-<script th:src="@{'library/external/angular-material/angular-material.min.js'}"></script>
-<script th:src="@{'library/external/angular-material/md-data-table.min.js'}"></script>
-<script th:src="@{'library/fit2cloud/js/menu.js?t='+${timestamp}}"></script>
+<script th:src="@{'web-public/external/jquery/jquery.min.js'}"></script>
+<script th:src="@{'web-public/external/angular/angular.min.js'}"></script>
+<script th:src="@{'web-public/external/angular/angular-ui-router.min.js'}"></script>
+<script th:src="@{'web-public/external/angular/angular-animate.min.js'}"></script>
+<script th:src="@{'web-public/external/angular/angular-aria.min.js'}"></script>
+<script th:src="@{'web-public/external/angular/angular-messages.min.js'}"></script>
+<script th:src="@{'web-public/external/angular-material/angular-material.min.js'}"></script>
+<script th:src="@{'web-public/external/angular-material/md-data-table.min.js'}"></script>
 <script th:inline="javascript" type="text/javascript">
     /*<![CDATA[*/
     window.appversion = [[${timestamp}]];
@@ -59,8 +53,8 @@
 </script>
 
 <!--可选JS-->
-<script th:src="@{'library/external/echarts/echarts.min.js'}"></script>
-<script th:src="@{'library/external/echarts/fit2cloud-echarts-theme.js?t='+${timestamp}}"></script>
+<script th:src="@{'web-public/external/echarts/echarts.min.js'}"></script>
+<script th:src="@{'web-public/external/echarts/fit2cloud-echarts-theme.js?t='+${timestamp}}"></script>
 
 <!--项目JS-->
 <script th:src="@{'project/js/app.js'}"></script>

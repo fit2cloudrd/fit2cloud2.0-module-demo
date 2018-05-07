@@ -2,4 +2,16 @@
  * 启动app，加载菜单
  */
 
-var ProjectApp = angular.module('ProjectApp', ['ngMaterial', 'ngMessages', 'ngRoute']);
+var ProjectApp = angular.module('ProjectApp', ['ngMaterial', 'ngMessages', 'ui.router']);
+ProjectApp.controller('DemoController', function () {
+
+});
+
+ProjectApp.config(function ($stateProvider) {
+    $stateProvider.state({
+            name: 'demo',
+            url: '/demo',
+            templateUrl: 'project/html/demo.html'
+        }
+    );
+});
