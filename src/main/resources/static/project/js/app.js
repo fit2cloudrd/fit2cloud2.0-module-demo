@@ -2,7 +2,7 @@
  * 启动app，加载菜单
  */
 
-var ProjectApp = angular.module('ProjectApp', ['ngMaterial', 'ngMessages', 'ui.router']);
+var ProjectApp = angular.module('ProjectApp', ['f2c.common']);
 ProjectApp.controller('DemoController', function () {
 
 });
