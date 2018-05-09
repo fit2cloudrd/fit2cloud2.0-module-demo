@@ -19,20 +19,12 @@
 </head>
 
 <body ng-app="ProjectApp" ng-cloak>
-<div layout="column" layout-fill>
+<div layout="column" layout-fill ng-controller="DemoCtrl">
     <section layout="row" flex>
-        <md-sidenav class="md-sidenav-left" md-disable-backdrop md-whiteframe="4" md-is-locked-open="$mdMedia('gt-md')" md-component-id="left">
-            <md-toolbar>
-                <h2 class="md-toolbar-tools">自服务</h2>
-            </md-toolbar>
-            <md-list>
-                <md-list-item ui-sref="demo">
-                    <p>Demo</p>
-                </md-list-item>
-            </md-list>
-        </md-sidenav>
-        <md-content flex>
-            <ui-view></ui-view>
+        <!--test="menus" -->
+        <module layout="row" name="'self-service'" dev="module"></module>
+        <md-content layout="row" flex>
+            <div ui-view=""></div>
         </md-content>
     </section>
 </div>
