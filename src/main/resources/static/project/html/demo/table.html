@@ -1,1 +1,51 @@
-<div>table</div>
+<md-toolbar class="md-hue-2">
+    <div layout="row">
+        <md-toolbar-filler layout layout-align="center center">
+            表格
+        </md-toolbar-filler>
+        <div class="md-toolbar-tools">
+            <md-button>创建</md-button>
+        </div>
+    </div>
+</md-toolbar>
+<div class="md-padding" layout-fill layout="column" ng-controller="TableCtrl">
+    <table dynamic-table columns="columns" execute="list({sql: sql})">
+        <tbody>
+        <tr ng-repeat="item in items" ng-click="showDetail(item)">
+            <td>
+                <md-checkbox md-no-ink aria-label="是否启用" ng-model="item.enable" class="md-primary"></md-checkbox>
+            </td>
+            <td>{{item.name}}</td>
+            <td>{{item.created | date:'yyyy-MM-dd HH:mm'}}</td>
+            <td>{{item.source}}</td>
+            <td>{{item.email}}</td>
+            <td>
+                <!--设置名成加op="'其他名称'"，默认的名称为"操作"；设置宽度加width="4 或其他整数"-->
+                <table-menus disabled="item.name === 'demo2'">
+                    <md-menu-item>
+                        <md-button ng-click="openDialog()">
+                            <md-icon class="md-18">edit</md-icon>
+                            编辑
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item ng-if="item.name !== 'demo3'">
+                        <md-button ng-click="">
+                            <md-icon>content_copy</md-icon>
+                            复制
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button ng-click="">
+                            <md-icon>delete</md-icon>
+                            删除
+                        </md-button>
+                    </md-menu-item>
+                </table-menus>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table-pagination limit-options="pagination.limits" limit="20" page="pagination.page" total="{{items.length}}"
+                      on-paginate="list"></table-pagination>
+</div>

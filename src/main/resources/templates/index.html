@@ -7,7 +7,6 @@
     <title>Demo</title>
     <!--必要CSS-->
     <link rel="stylesheet" th:href="@{'web-public/external/angular-material/angular-material.min.css'}">
-    <link rel="stylesheet" th:href="@{'web-public/external/angular-material/md-data-table.min.css'}">
     <link rel="stylesheet" th:href="@{'web-public/external/font-awesome/web-fonts-with-css/css/fontawesome-all.css'}">
     <link rel="stylesheet" th:href="@{'web-public/external/material-icons/material-icons.css'}">
     <link rel="stylesheet" th:href="@{'web-public/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
@@ -23,9 +22,7 @@
     <section layout="row" flex>
         <!--test="menus" -->
         <module layout="row" name="'self-service'" dev="module"></module>
-        <md-content layout="row" flex>
-            <div ui-view=""></div>
-        </md-content>
+        <md-content layout="column" flex ui-view=""></md-content>
     </section>
 </div>
 
@@ -37,7 +34,6 @@
 <script th:src="@{'web-public/external/angular/angular-aria.min.js'}"></script>
 <script th:src="@{'web-public/external/angular/angular-messages.min.js'}"></script>
 <script th:src="@{'web-public/external/angular-material/angular-material.min.js'}"></script>
-<script th:src="@{'web-public/external/angular-material/md-data-table.min.js'}"></script>
 <script th:src="@{'web-public/fit2cloud/js/fit2cloud-common.js'}"></script>
 <script th:inline="javascript" type="text/javascript">
     /*<![CDATA[*/
