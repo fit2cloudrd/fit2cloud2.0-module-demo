@@ -1,0 +1,147 @@
+{
+  "order": 1,
+  "title": "demo1",
+  "icon": "demo1",
+  "menu": [
+    {
+      "order": 1,
+      "title": "仪表盘",
+      "name": "dashboard",
+      "icon": "dashboard",
+      "url": "/dashboard",
+      "templateUrl": "project/html/demo/dashboard.html",
+      "permission": [
+        "dashboard1",
+        "dashboard2",
+        "dashboard3"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "示例1",
+      "icon": "assignment",
+      "children": [
+        {
+          "order": 1,
+          "title": "表格",
+          "name": "table",
+          "url": "/table",
+          "templateUrl": "project/html/demo/table.html",
+          "permission": [
+            "user1",
+            "user2"
+          ]
+        },
+        {
+          "order": 2,
+          "title": "表单",
+          "name": "form",
+          "url": "/form",
+          "templateUrl": "project/html/demo/form.html",
+          "permission": [
+            "org1"
+          ]
+        }
+      ]
+    }
+  ],
+  "permissionList": [
+    {
+      "id": "dashboard1",{
+      "order": 1,
+      "title": "demo1",
+      "icon": "demo1",
+      "menu": [
+        {
+          "order": 1,
+          "title": "仪表盘",
+          "name": "dashboard",
+          "icon": "dashboard",
+          "url": "/dashboard",
+          "templateUrl": "project/html/demo/dashboard.html",
+          "permission": [
+            "dashboard1",
+            "dashboard2",
+            "dashboard3"
+          ]
+        },
+        {
+          "order": 2,
+          "title": "示例1",
+          "icon": "assignment",
+          "children": [
+            {
+              "order": 1,
+              "title": "表格",
+              "name": "table",
+              "url": "/table",
+              "templateUrl": "project/html/demo/table.html",
+              "permission": [
+                "user1",
+                "user2"
+              ]
+            },
+            {
+              "order": 2,
+              "title": "表单",
+              "name": "form",
+              "url": "/form",
+              "templateUrl": "project/html/demo/form.html",
+              "permission": [
+                "org1"
+              ]
+            }
+          ]
+        }
+      ],
+      "permissionList": [
+        {
+          "id": "dashboard1",
+          "name": "概览统计"
+        },
+        {
+          "id": "dashboard2",
+          "name": "模块状态"
+        },
+        {
+          "id": "dashboard3",
+          "name": "用户登陆"
+        },
+        {
+          "id": "user1",
+          "name": "用户列表"
+        },
+        {
+          "id": "user2",
+          "name": "用户角色"
+        },
+        {
+          "id": "org1",
+          "name": "组织列表"
+        }
+      ]
+    }
+      "name": "概览统计"
+    },
+    {
+      "id": "dashboard2",
+      "name": "模块状态"
+    },
+    {
+      "id": "dashboard3",
+      "name": "用户登陆"
+    },
+    {
+      "id": "user1",
+      "name": "用户列表"
+    },
+    {
+      "id": "user2",
+      "name": "用户角色"
+    },
+    {
+      "id": "org1",
+      "name": "组织列表"
+    }
+  ]
+}

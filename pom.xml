@@ -28,7 +28,7 @@
     <dependencies>
         <dependency>
             <groupId>com.fit2cloud</groupId>
-            <artifactId>commons-utils</artifactId>
+            <artifactId>server-public</artifactId>
             <version>${fit2cloud-version}</version>
         </dependency>
         <dependency>
