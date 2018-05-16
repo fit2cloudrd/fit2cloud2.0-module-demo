@@ -59,7 +59,7 @@ ProjectApp.controller('DemoCtrl', function ($scope) {
     $scope.module = MENUS_TEST;
 });
 
-ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $document) {
+ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $document, HttpUtils) {
     // 全选按钮，添加到$scope.columns
     $scope.first = {
         default: true,
@@ -114,7 +114,14 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $document) {
     };
 
     $scope.list = function (page, limit) {
+        HttpUtils.get("demo/test1/result-holder", function (response) {
+            console.log(response)
+        });
+        HttpUtils.post("demo/test2/no-result-holder", null, function (response) {
+            console.log(response)
+        });
         console.log(page, limit);
-    }
+    };
 
+    $scope.list();
 });
