@@ -170,17 +170,29 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, HttpUtils, Filte
         });
     };
 
-    $scope.openDialog = function (event) {
+    $scope.openDialog = function (item, event) {
+        $scope.item = item;
         $mdDialog.show({
-            templateUrl: 'project/html/demo/form.html',
+            templateUrl: 'project/html/demo/dialog-form.html',
             parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,
             targetEvent: event,
-            clickOutsideToClose: true
+            clickOutsideToClose: false
         }).then(function (answer) {
             $scope.status = 'You said the information was "' + answer + '".';
         }, function () {
             $scope.status = 'You cancelled the dialog.';
         });
+    };
+
+    $scope.closeDialog = function () {
+        $mdDialog.cancel();
+    };
+
+    $scope.ok = function () {
+        console.log("ok");
+        $scope.closeDialog();
     };
 
     $scope.pagination = {

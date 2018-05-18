@@ -1,0 +1,60 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <!-- 别让我看到正式代码里还有testForm-->
+    <form ng-cloak name="testForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Test Form</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="closeDialog()">
+                    <md-icon>close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>姓名</label>
+                        <input md-maxlength="30" required name="name" ng-model="item.name">
+                        <div ng-messages="testForm.name.$error">
+                            <div ng-message="required">必填.</div>
+                            <div ng-message="md-maxlength">不要超过30个字符</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>创建日期</label>
+                        <md-datepicker ng-model="item.created" required name="created"></md-datepicker>
+                        <div ng-messages="testForm.created.$error">
+                            <div ng-message="required">必填.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <md-input-container class="md-block">
+                    <label>Email</label>
+                    <input required type="email" name="email" ng-model="item.email"
+                           minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+
+                    <div class="hint">邮箱将用做登录的唯一标识</div>
+
+                    <div ng-messages="testForm.email.$error" role="alert">
+                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            邮件必须符合邮件格式，并且在10-100字符以内
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="center center">
+            <md-button ng-click="ok()">
+                确定
+            </md-button>
+            <md-button ng-click="closeDialog()">
+                取消
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
