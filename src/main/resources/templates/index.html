@@ -21,13 +21,14 @@
 <div layout="column" layout-fill ng-controller="DemoCtrl">
     <section layout="row" flex>
         <!--test="menus" -->
-        <module layout="row" name="'self-service'" dev="module"></module>
+        <module layout="row" dev="module"></module>
         <md-content layout="column" flex ui-view=""></md-content>
     </section>
 </div>
 
 <!--必要JS-->
 <script th:src="@{'web-public/external/jquery/jquery.min.js'}"></script>
+<script th:src="@{'web-public/external/moment/moment.min.js'}"></script>
 <script th:src="@{'web-public/external/angular/angular.min.js'}"></script>
 <script th:src="@{'web-public/external/angular/angular-ui-router.min.js'}"></script>
 <script th:src="@{'web-public/external/angular/angular-animate.min.js'}"></script>

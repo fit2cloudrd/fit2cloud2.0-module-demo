@@ -9,6 +9,16 @@
     </div>
 </md-toolbar>
 <div class="md-padding" layout-fill layout="column" ng-controller="TableCtrl">
+    <filter-tools conditions="conditions" results="filters" search="'true'" execute="list()">
+        <select-columns columns="columns"></select-columns>
+        <div class="filler-item">
+            <md-button class="md-icon-button md-whiteframe-1dp" ng-click="help()">
+                <md-tooltip md-delay="300">帮助</md-tooltip>
+                <md-icon>help</md-icon>
+            </md-button>
+        </div>
+    </filter-tools>
+
     <table dynamic-table columns="columns" execute="list({sql: sql})">
         <tbody>
         <tr ng-repeat="item in items" ng-click="showDetail(item)">
