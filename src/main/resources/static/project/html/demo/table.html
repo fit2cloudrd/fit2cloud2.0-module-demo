@@ -1,14 +1,10 @@
-<md-toolbar class="md-hue-2">
-    <div layout="row">
-        <md-toolbar-filler layout layout-align="center center">
-            表格
-        </md-toolbar-filler>
-        <div class="md-toolbar-tools">
-            <md-button>创建</md-button>
-        </div>
+<md-toolbar class="content-toolbar">
+    <div class="md-toolbar-tools">
+        <div>表格</div>
+        <md-button class="md-primary">创建</md-button>
     </div>
 </md-toolbar>
-<div class="md-padding" layout-fill layout="column" ng-controller="TableCtrl">
+<div class="md-padding" layout="column" ng-controller="TableCtrl">
     <filter-tools conditions="conditions" results="filters" search="'true'" execute="list()">
         <select-columns columns="columns"></select-columns>
         <div class="filler-item">

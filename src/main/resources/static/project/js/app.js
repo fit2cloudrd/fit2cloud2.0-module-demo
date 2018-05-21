@@ -4,10 +4,6 @@
 
 var ProjectApp = angular.module('ProjectApp', ['f2c.common']);
 
-ProjectApp.config(function ($mdThemingProvider) {
-    $mdThemingProvider.theme('default');
-});
-
 // 测试专用
 var MENUS_TEST = {
     title: "自服务",
@@ -31,7 +27,7 @@ var MENUS_TEST = {
                 }, {
                     title: "表单",
                     name: "form",
-                    url: "form",
+                    url: "/form",
                     templateUrl: "project/html/demo/form.html" + '?_t=' + window.appversion
                 }
             ]
