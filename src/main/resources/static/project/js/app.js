@@ -7,7 +7,7 @@ var ProjectApp = angular.module('ProjectApp', ['f2c.common']);
 // 测试专用
 var MENUS_TEST = {
     title: "自服务",
-    icon: "home",
+    icon: "shopping_cart",
     menus: [
         {
             title: "仪表盘",
