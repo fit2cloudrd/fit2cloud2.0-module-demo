@@ -55,7 +55,8 @@ ProjectApp.controller('DemoCtrl', function ($scope) {
     $scope.module = MENUS_TEST;
 });
 
-ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, HttpUtils, FilterSearch) {
+ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, FilterSearch, Notification) {
+
     // 定义搜索条件
     $scope.conditions = [
         {
@@ -152,24 +153,29 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, HttpUtils, Filte
         {name: 'demo4', created: '2018-05-14 10:00:00', source: 'fit2cloud', email: 'demo4@fit2cloud.com'}
     ];
 
-    $scope.help = function () {
-        $scope.msg = "Bottom Sheep Demo";
-        $mdBottomSheet.show({
-            templateUrl: 'project/html/demo/bottom-sheet.html',
-            scope: $scope,
-            preserveScope: true
-        }).then(function (clickedItem) {
-            $scope.msg = clickedItem['name'] + ' clicked!';
-        }).catch(function (error) {
-            console.log(error)
-            // User clicked outside or hit escape
+    $scope.create = function () {
+        // $scope.formUrl用于side-form
+        $scope.formUrl = 'web-public/test/demo/form.html' + '?_t=' + window.appversion;
+        // toggleForm由side-form指令生成
+        $scope.toggleForm();
+    };
+
+    $scope.save = function () {
+        Notification.show("保存成功", function () {
+            $scope.toggleForm();
         });
+    };
+
+    $scope.edit = function (item) {
+        $scope.item = item;
+        $scope.formUrl = 'web-public/test/demo/form.html' + '?_t=' + window.appversion;
+        $scope.toggleForm();
     };
 
     $scope.openDialog = function (item, event) {
         $scope.item = item;
         $mdDialog.show({
-            templateUrl: 'project/html/demo/dialog-form.html',
+            templateUrl: 'web-public/test/demo/dialog-form.html',
             parent: angular.element(document.body),
             scope: $scope,
             preserveScope: true,
@@ -197,7 +203,7 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, HttpUtils, Filte
         limits: [10, 20, 50]
     };
 
-    $scope.list = function (sortObj, page, limit) {
+    $scope.list = function (sortObj) {
         var condition = FilterSearch.convert($scope.filters);
         if (sortObj) {
             $scope.sort = sortObj;
@@ -207,14 +213,20 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, HttpUtils, Filte
             condition.sort = $scope.sort.sql;
         }
         console.log(condition);
-        HttpUtils.get("demo/test1/result-holder", function (response) {
-            console.log(response)
-        });
-        HttpUtils.post("demo/test2/no-result-holder", null, function (response) {
-            console.log(response)
-        });
-        console.log(page, limit);
     };
 
-    $scope.list();
+    $scope.help = function () {
+        $scope.msg = "Bottom Sheep Demo";
+        $mdBottomSheet.show({
+            templateUrl: 'web-public/test/demo/bottom-sheet.html',
+            scope: $scope,
+            preserveScope: true
+        }).then(function (clickedItem) {
+            $scope.msg = clickedItem['name'] + ' clicked!';
+        }).catch(function (error) {
+            console.log(error)
+            // User clicked outside or hit escape
+        });
+    }
+
 });
