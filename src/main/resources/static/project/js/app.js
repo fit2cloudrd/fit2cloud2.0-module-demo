@@ -29,6 +29,11 @@ var MENUS_TEST = {
                     name: "form",
                     url: "/form",
                     templateUrl: "project/html/demo/form.html" + '?_t=' + window.appversion
+                }, {
+                    title: "监控",
+                    name: "metric",
+                    url: "/metric",
+                    templateUrl: "project/html/demo/metric.html" + '?_t=' + window.appversion
                 }
             ]
         }, {
@@ -230,3 +235,56 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     }
 
 });
+
+ProjectApp.controller('MetricController', function ($scope) {
+    var now = new Date().getTime();
+
+    $scope.request = {
+        startTime: now - 240 * 3600 * 1000,
+        endTime: now,
+        metricDataQueries: [
+            {
+                resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
+                resourceName: 'test',
+                resourceType: 'VIRTUALMACHINE',
+                stat: 'average',
+                metric: 'CpuUsage'
+            },
+            {
+                resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
+                resourceName: 'test',
+                resourceType: 'VIRTUALMACHINE',
+                stat: 'average',
+                metric: 'CpuUsageInMhz'
+            },
+            {
+                resourceId: '9430a5ff-00a3-4000-8b04-f3d8bdc7fadb',
+                resourceName: 'test',
+                resourceType: 'HOSTSYSTEM',
+                stat: 'average',
+                metric: 'HostCpuInMHZ'
+            },
+            {
+                resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
+                resourceName: 'test',
+                resourceType: 'VIRTUALMACHINE',
+                stat: 'average',
+                metric: 'MemoryUsage'
+            },
+            {
+                resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
+                resourceName: 'test',
+                resourceType: 'VIRTUALMACHINE',
+                stat: 'average',
+                metric: 'MemoryUsageInMB'
+            },
+            {
+                resourceId: '9430a5ff-00a3-4000-8b04-f3d8bdc7fadb',
+                resourceName: 'test',
+                resourceType: 'HOSTSYSTEM',
+                stat: 'average',
+                metric: 'HostMemoryInMB'
+            }
+        ]
+    }
+})

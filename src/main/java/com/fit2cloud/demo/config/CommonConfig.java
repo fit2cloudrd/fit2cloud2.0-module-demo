@@ -5,6 +5,7 @@ import com.fit2cloud.commons.utils.CommonThreadPool;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.client.RestTemplate;
 
 /**
  *
@@ -28,5 +29,10 @@ public class CommonConfig {
         commonThreadPool.setCorePoolSize(20);
         commonThreadPool.setKeepAliveSeconds(3600);
         return commonThreadPool;
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 }
