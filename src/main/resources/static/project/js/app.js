@@ -60,7 +60,7 @@ ProjectApp.controller('DemoCtrl', function ($scope) {
     $scope.module = MENUS_TEST;
 });
 
-ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, FilterSearch, Notification) {
+ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, FilterSearch, Notification, HttpUtils, Loading) {
 
     // 定义搜索条件
     $scope.conditions = [
@@ -152,10 +152,10 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     ];
 
     $scope.items = [
-        {name: 'demo1', created: '2018-05-14 10:00:00', source: 'fit2cloud', email: 'demo1@fit2cloud.com'},
-        {name: 'demo2', created: '2018-05-14 10:00:00', source: 'fit2cloud', email: 'demo2@fit2cloud.com'},
-        {name: 'demo3', created: '2018-05-14 10:00:00', source: 'fit2cloud', email: 'demo3@fit2cloud.com'},
-        {name: 'demo4', created: '2018-05-14 10:00:00', source: 'fit2cloud', email: 'demo4@fit2cloud.com'}
+        {name: 'demo1', created: '2018-05-14', source: 'fit2cloud', email: 'demo1@fit2cloud.com'},
+        {name: 'demo2', created: '2018-05-14', source: 'fit2cloud', email: 'demo2@fit2cloud.com'},
+        {name: 'demo3', created: '2018-05-14', source: 'fit2cloud', email: 'demo3@fit2cloud.com'},
+        {name: 'demo4', created: '2018-05-14', source: 'fit2cloud', email: 'demo4@fit2cloud.com'}
     ];
 
     $scope.create = function () {
@@ -217,7 +217,20 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
         if ($scope.sort) {
             condition.sort = $scope.sort.sql;
         }
-        console.log(condition);
+
+        Loading.add(HttpUtils.get("demo/test1/5000", function (response) {
+            console.log(response);
+        }));
+        Loading.add(HttpUtils.get("demo/test1/1000", function (response) {
+            console.log(response);
+        }));
+        // 多个查询用这种方式
+        $scope.loadingLayer = Loading.load();
+
+        // 单个查询跟以前一样
+        $scope.loadingLayer2 = HttpUtils.get("demo/test1/5000", function (response) {
+            console.log(response);
+        })
     };
 
     $scope.help = function () {

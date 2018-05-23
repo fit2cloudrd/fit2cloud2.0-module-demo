@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/demo")
 public class DemoController {
     @RequestMapping(value = "/test1/{module}")
-    public Object noResultHolder(@PathVariable String module) {
+    public Object noResultHolder(@PathVariable String module) throws InterruptedException {
+        Thread.sleep(Integer.valueOf(module));
         return ResultHolder.success(module);
     }
 
