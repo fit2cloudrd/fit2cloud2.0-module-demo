@@ -29,17 +29,17 @@
                     <td>{{item.source}}</td>
                     <td>{{item.email}}</td>
                     <td>
-                        <!--设置名成加op="'其他名称'"，默认的名称为"操作"；设置宽度加width="4 或其他整数"-->
+                        <!--设置名成加op="'其他名称'"，默认的名称为"操作"；设置宽度加width="3 或其他整数"，默认3-->
                         <table-menus disabled="item.name === 'demo2'">
                             <md-menu-item>
                                 <md-button ng-click="openDialog(item)">
-                                    <md-icon class="md-18">edit</md-icon>
+                                    <md-icon>edit</md-icon>
                                     弹窗编辑
                                 </md-button>
                             </md-menu-item>
                             <md-menu-item>
                                 <md-button ng-click="edit(item)">
-                                    <md-icon class="md-18">edit</md-icon>
+                                    <md-icon>edit</md-icon>
                                     侧边栏编辑
                                 </md-button>
                             </md-menu-item>
