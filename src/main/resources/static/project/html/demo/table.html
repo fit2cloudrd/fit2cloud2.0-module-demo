@@ -1,67 +1,69 @@
-<div ng-controller="TableCtrl" class="content-backdrop" ng-cloak cg-busy="{promise:loadingLayer,minDuration:500}">
-    <md-toolbar class="content-toolbar">
-        <div class="md-toolbar-tools">
-            <div>表格</div>
-            <md-button class="md-primary" ng-click="create()">创建</md-button>
-            <md-button class="md-accent" ng-click="list()">刷新</md-button>
-        </div>
-    </md-toolbar>
-    <div class="md-padding" layout="column">
-        <filter-tools conditions="conditions" results="filters" search="'true'" execute="list()">
-            <select-columns columns="columns"></select-columns>
-            <div class="filter-item">
-                <md-button class="md-icon-button md-whiteframe-1dp" ng-click="help()">
-                    <md-tooltip md-delay="300">帮助</md-tooltip>
-                    <md-icon>help</md-icon>
-                </md-button>
+<div ng-controller="TableCtrl" class="content-backdrop" ng-cloak>
+    <div cg-busy="{promise:loadingLayer,minDuration:500}">
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <div>表格</div>
+                <md-button class="md-primary" ng-click="create()">创建</md-button>
+                <md-button ng-click="list()">刷新</md-button>
             </div>
-        </filter-tools>
+        </md-toolbar>
+        <div class="md-padding" layout="column">
+            <filter-tools conditions="conditions" results="filters" search="'true'" execute="list()">
+                <select-columns columns="columns"></select-columns>
+                <div class="filter-item">
+                    <md-button class="md-icon-button md-whiteframe-1dp" ng-click="help()">
+                        <md-tooltip md-delay="300">帮助</md-tooltip>
+                        <md-icon>help</md-icon>
+                    </md-button>
+                </div>
+            </filter-tools>
 
-        <table dynamic-table columns="columns" execute="list({sql: sql})">
-            <tbody>
-            <tr ng-repeat="item in items" ng-click="showDetail(item)">
-                <td>
-                    <md-checkbox md-no-ink aria-label="是否启用" ng-model="item.enable" class="md-primary"></md-checkbox>
-                </td>
-                <td>{{item.name}}</td>
-                <td>{{item.created | date:'yyyy-MM-dd HH:mm'}}</td>
-                <td>{{item.source}}</td>
-                <td>{{item.email}}</td>
-                <td>
-                    <!--设置名成加op="'其他名称'"，默认的名称为"操作"；设置宽度加width="4 或其他整数"-->
-                    <table-menus disabled="item.name === 'demo2'">
-                        <md-menu-item>
-                            <md-button ng-click="openDialog(item)">
-                                <md-icon class="md-18">edit</md-icon>
-                                弹窗编辑
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button ng-click="edit(item)">
-                                <md-icon class="md-18">edit</md-icon>
-                                侧边栏编辑
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-item ng-if="item.name !== 'demo3'">
-                            <md-button ng-click="">
-                                <md-icon>content_copy</md-icon>
-                                复制
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-divider></md-menu-divider>
-                        <md-menu-item>
-                            <md-button ng-click="">
-                                <md-icon>delete</md-icon>
-                                删除
-                            </md-button>
-                        </md-menu-item>
-                    </table-menus>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <table-pagination limit-options="pagination.limits" limit="20" page="pagination.page" total="{{items.length}}"
-                          on-paginate="list"></table-pagination>
+            <table dynamic-table columns="columns" execute="list({sql: sql})">
+                <tbody>
+                <tr ng-repeat="item in items" ng-click="showDetail(item)">
+                    <td>
+                        <md-checkbox md-no-ink aria-label="是否启用" ng-model="item.enable" class="md-primary"></md-checkbox>
+                    </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.created | date:'yyyy-MM-dd HH:mm'}}</td>
+                    <td>{{item.source}}</td>
+                    <td>{{item.email}}</td>
+                    <td>
+                        <!--设置名成加op="'其他名称'"，默认的名称为"操作"；设置宽度加width="4 或其他整数"-->
+                        <table-menus disabled="item.name === 'demo2'">
+                            <md-menu-item>
+                                <md-button ng-click="openDialog(item)">
+                                    <md-icon class="md-18">edit</md-icon>
+                                    弹窗编辑
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="edit(item)">
+                                    <md-icon class="md-18">edit</md-icon>
+                                    侧边栏编辑
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item ng-if="item.name !== 'demo3'">
+                                <md-button ng-click="">
+                                    <md-icon>content_copy</md-icon>
+                                    复制
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <md-button ng-click="">
+                                    <md-icon>delete</md-icon>
+                                    删除
+                                </md-button>
+                            </md-menu-item>
+                        </table-menus>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table-pagination limit-options="pagination.limits" limit="20" page="pagination.page" total="{{items.length}}"
+                              on-paginate="list"></table-pagination>
+        </div>
     </div>
     <!--必须定义$scope.formUrl,width不设默认70%-->
     <side-form width="80%"></side-form>
