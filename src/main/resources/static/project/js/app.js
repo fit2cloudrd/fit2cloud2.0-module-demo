@@ -245,7 +245,7 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     //     page: 2
     // };
     HttpUtils.paging($scope, "demo/list", {}, function (response) {
-        console.log("callback function", $scope.pagination);
+        console.log("callback function", $scope.pagination, response);
     });
 
     $scope.help = function () {
