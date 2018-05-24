@@ -244,6 +244,8 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     // $scope.pagination = {
     //     page: 2
     // };
+    HttpUtils.paging($scope, "demo/list", {});
+    // 需要callback就加上
     HttpUtils.paging($scope, "demo/list", {}, function (response) {
         console.log("callback function", $scope.pagination, response);
     });
