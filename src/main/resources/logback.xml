@@ -186,7 +186,7 @@
     <!--避免第三方日志刷屏-->
     <logger name="org.restlet" level="WARN"/>
 
-	<logger name="com.fit2cloud.demo.dao" level="${log.level.sql}">
+	<logger name="com.fit2cloud" level="${log.level.sql}">
 		<appender-ref ref="${log.out}" />
 	</logger>
 

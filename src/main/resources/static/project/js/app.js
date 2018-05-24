@@ -233,6 +233,21 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
         })
     };
 
+    // 分页DEMO，有特殊需求可以自定义$scope.pagination，可以只定义一项，比如page:1,其他不写也可以
+    // OK
+    // $scope.pagination = {
+    //     page: 1,
+    //     limit: 10,
+    //     limitOptions: [10, 20, 50, 100]
+    // };
+    // OK
+    // $scope.pagination = {
+    //     page: 2
+    // };
+    HttpUtils.paging($scope, "demo/list", {}, function (response) {
+        console.log("callback function", $scope.pagination);
+    });
+
     $scope.help = function () {
         $scope.msg = "Bottom Sheep Demo";
         $mdBottomSheet.show({
@@ -300,4 +315,4 @@ ProjectApp.controller('MetricController', function ($scope) {
             }
         ]
     }
-})
+});

@@ -13,15 +13,16 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 
-import javax.annotation.Resource;
 import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.annotation.Resource;
+
 /**
- * @Author: chunxing
- * @Date: 2018/5/3  下午12:00
- * @Description: 使用redis缓存配置
+ * Author: chunxing
+ * Date: 2018/5/3  下午12:00
+ * Description: 使用redis缓存配置
  */
 @Configuration
 @EnableCaching
