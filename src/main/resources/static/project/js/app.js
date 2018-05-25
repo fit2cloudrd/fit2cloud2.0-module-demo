@@ -325,6 +325,7 @@ ProjectApp.controller('MetricController', function ($scope) {
 });
 
 ProjectApp.controller('WizardController', function ($scope, HttpUtils, Notification) {
+    // 可用方法$scope.wizard.isLast()，$scope.wizard.isFirst()，$scope.wizard.isSelected()，$scope.wizard.continue()
     $scope.wizard = {
         setting: {
             title: "标题",
@@ -332,7 +333,22 @@ ProjectApp.controller('WizardController', function ($scope, HttpUtils, Notificat
             closeText: "取消",
             submitText: "保存",
             nextText: "下一步",
-            prevText: "上一步"
+            prevText: "上一步",
+            buttons: [  // 去掉buttons，则显示submit按钮
+                {
+                    text: "自定义按钮",
+                    class: "md-raised md-accent md-hue-2",
+                    click: function () {
+                        Notification.info("自定义按钮 click");
+                    },
+                    show: function () {
+                        return $scope.wizard.isLast() || $scope.wizard.current === 2;
+                    },
+                    disabled: function () {
+                        return $scope.wizard.current === 2;
+                    }
+                }
+            ]
         },
         // 按顺序显示,id必须唯一并需要与页面中的id一致，select为分步初始化方法，next为下一步方法(最后一步时作为提交方法)
         steps: [
