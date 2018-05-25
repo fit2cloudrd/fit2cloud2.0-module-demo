@@ -39,6 +39,11 @@ var MENUS_TEST = {
                     name: "stepper",
                     url: "/stepper",
                     templateUrl: "project/html/demo/stepper.html" + '?_t=' + window.appversion
+                }, {
+                    title: "按钮",
+                    name: "button",
+                    url: "/button",
+                    templateUrl: "project/html/demo/buttons.html" + '?_t=' + window.appversion
                 }
             ]
         }, {
