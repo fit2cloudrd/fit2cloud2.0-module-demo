@@ -1,5 +1,10 @@
-<div flex ng-controller="WizardController" cg-busy="{promise:loadingLayer,minDuration:500}">
-    <md-button class="md-raised" ng-click="open()" ng-if="!show">打开向导</md-button>
+<div layout="column" layout-fill ng-controller="WizardController" cg-busy="{promise:loadingLayer,minDuration:500}">
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <div>Stepper</div>
+            <md-button class="md-raised" ng-click="open()" ng-if="!show">打开向导</md-button>
+        </div>
+    </md-toolbar>
     <div wizard="wizard" ng-if="show">
         <wizard-step id="1">
             <form name="testForm" class="md-padding">
