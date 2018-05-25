@@ -34,6 +34,11 @@ var MENUS_TEST = {
                     name: "metric",
                     url: "/metric",
                     templateUrl: "project/html/demo/metric.html" + '?_t=' + window.appversion
+                }, {
+                    title: "Stepper",
+                    name: "stepper",
+                    url: "/stepper",
+                    templateUrl: "project/html/demo/stepper.html" + '?_t=' + window.appversion
                 }
             ]
         }, {
@@ -316,5 +321,81 @@ ProjectApp.controller('MetricController', function ($scope) {
                 metric: 'HostMemoryInMB'
             }
         ]
+    }
+});
+
+ProjectApp.controller('WizardController', function ($scope, HttpUtils, Notification) {
+    $scope.wizard = {
+        setting: {
+            title: "标题",
+            subtitle: "子标题",
+            closeText: "取消",
+            submitText: "保存",
+            nextText: "下一步",
+            prevText: "上一步"
+        },
+        // 按顺序显示,id必须唯一并需要与页面中的id一致，select为分步初始化方法，next为下一步方法(最后一步时作为提交方法)
+        steps: [
+            {
+                id: "1",
+                name: "云帐号",
+                select: function () {
+                    console.log("第一步select")
+                }
+            }, {
+                id: "2",
+                name: "基础设置",
+                select: function () {
+                    console.log("第二步select")
+                },
+                next: function () {
+                    console.log("第二步Next");
+                    // 返回true则自动下一步
+                    return true;
+                }
+            }, {
+                id: "3",
+                name: "异步验证",
+                select: function () {
+                    console.log("第三步select")
+                },
+                next: function () {
+                    $scope.loadingLayer = HttpUtils.get("demo/test1/2000", function (response) {
+                        console.log("第三步异步验证通过,验证时间：" + response.data);
+                        $scope.wizard.continue();
+                    });
+                    // 返回false，则不会自动进行下一步
+                    return false;
+                }
+            }, {
+                id: "4",
+                name: "权限设置",
+                select: function () {
+                    console.log("第四步select");
+                },
+                next: function () {
+                    Notification.confirm("确定保存？", function () {
+                        Notification.info("确定保存");
+                    }, function () {
+                        Notification.info("取消");
+                    })
+                }
+            }
+        ],
+        // 嵌入页面需要指定关闭方法
+        close: function () {
+            $scope.show = false;
+        }
+    };
+
+    $scope.pass = false;
+    $scope.check = function () {
+        $scope.pass = !$scope.pass;
+    };
+
+    $scope.show = true;
+
+    $scope.open = function () {
+        $scope.show = true;
     }
 });
