@@ -1,0 +1,28 @@
+<div ng-controller="TreeController" class="content-backdrop" ng-cloak>
+    <div cg-busy="{promise:loadingLayer,minDuration:500}">
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <div>树</div>
+                <md-button class="md-primary" ng-click="getSelected()">获取已选择</md-button>
+            </div>
+        </md-toolbar>
+        <div class="md-padding" layout="column">
+            <div layout="row">
+                <div flex>
+                    <div>
+                        带根节点
+                    </div>
+                    <tree data="node" api="root" type="checkbox"></tree>
+                </div>
+                <div flex>
+                    <div>
+                        不带根节点
+                    </div>
+                    <tree data="nodes" api="noroot" type="checkbox"></tree>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

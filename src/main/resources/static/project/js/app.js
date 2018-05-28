@@ -25,11 +25,6 @@ var MENUS_TEST = {
                     url: "/table",
                     templateUrl: "project/html/demo/table.html" + '?_t=' + window.appversion
                 }, {
-                    title: "表单",
-                    name: "form",
-                    url: "/form",
-                    templateUrl: "project/html/demo/form.html" + '?_t=' + window.appversion
-                }, {
                     title: "监控",
                     name: "metric",
                     url: "/metric",
@@ -44,6 +39,11 @@ var MENUS_TEST = {
                     name: "button",
                     url: "/button",
                     templateUrl: "project/html/demo/buttons.html" + '?_t=' + window.appversion
+                }, {
+                    title: "树",
+                    name: "tree",
+                    url: "/tree",
+                    templateUrl: "project/html/demo/tree.html" + '?_t=' + window.appversion
                 }
             ]
         }, {
@@ -419,4 +419,70 @@ ProjectApp.controller('WizardController', function ($scope, HttpUtils, Notificat
     $scope.open = function () {
         $scope.show = true;
     }
+});
+
+ProjectApp.controller('TreeController', function ($scope) {
+    $scope.node = {
+        name: "一级",
+        collapsed: false,
+        children: [
+            {
+                name: "二级-1",
+                children: [
+                    {
+                        name: "三级-1"
+                    }, {
+                        name: "三级-2",
+                        // checked: true
+                    }
+                ]
+            }, {
+                name: "二级-2"
+            }, {
+                name: "二级-3",
+                children: [
+                    {
+                        name: "三级-1"
+                    }, {
+                        name: "三级-2"
+                    }
+                ]
+            }
+        ]
+    };
+
+    // 也可以用数组
+    $scope.nodes = [
+        {
+            name: "一级-1",
+            children: [
+                {
+                    name: "二级-1"
+                }, {
+                    name: "二级-2"
+                }
+            ]
+        }, {
+            name: "一级-2"
+        }, {
+            name: "一级-3",
+            children: [
+                {
+                    name: "二级-1"
+                }, {
+                    name: "二级-2"
+                }
+            ]
+        }
+    ];
+
+    // 自动生成$scope.api.getSelected();
+    $scope.root = {};
+    $scope.noroot = {};
+
+    $scope.getSelected = function () {
+        console.log("带root", JSON.stringify($scope.root.getSelected(), 4));
+        console.log("不带root", JSON.stringify($scope.noroot.getSelected(), 4));
+    }
+
 });
