@@ -5,15 +5,10 @@
                 <div>表格</div>
                 <md-button class="md-primary" ng-click="create()">创建</md-button>
                 <md-button ng-click="list()">刷新</md-button>
-                <div flex></div>
-                <md-button class="md-primary" ng-click="showInformation()">
-                    <div ng-if="!isShowInfoForm()">显示信息</div>
-                    <div ng-if="isShowInfoForm()">关闭信息</div>
-                </md-button>
             </div>
         </md-toolbar>
         <div layout="row" flex>
-            <div class="md-padding" layout="column">
+            <div class="md-padding" layout="column" flex="100">
                 <filter-tools conditions="conditions" results="filters" search="'true'" execute="list()">
                     <select-columns columns="columns"></select-columns>
                     <div class="filter-item">
@@ -26,11 +21,13 @@
 
                 <table dynamic-table columns="columns" execute="list({sql: sql})">
                     <tbody>
-                    <tr ng-repeat="item in items" ng-click="showDetail(item)">
+                    <tr ng-repeat="item in items" ng-class="{'tr-selected':selected === item.$$hashKey}">
                         <td>
                             <md-checkbox md-no-ink aria-label="是否启用" ng-model="item.enable" class="md-primary"></md-checkbox>
                         </td>
-                        <td>{{item.name}}</td>
+                        <td>
+                            <a class="md-primary" href="" ng-click="showDetail(item)">{{item.name}}</a>
+                        </td>
                         <td>{{item.created | date:'yyyy-MM-dd HH:mm'}}</td>
                         <td>{{item.source}}</td>
                         <td>{{item.email}}</td>

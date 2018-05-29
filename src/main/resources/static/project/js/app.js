@@ -149,7 +149,19 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     };
 
     $scope.showDetail = function (item) {
+        $scope.selected = item.$$hashKey;
         $scope.detail = item;
+        $scope.showInformation()
+    };
+
+    $scope.closeInformation = function () {
+        $scope.selected = "";
+        $scope.toggleInfoForm(false);
+    };
+
+    $scope.showInformation = function () {
+        $scope.infoUrl = 'web-public/test/demo/information.html' + '?_t=' + window.appversion;
+        $scope.toggleInfoForm(true);
     };
 
     $scope.columns = [
