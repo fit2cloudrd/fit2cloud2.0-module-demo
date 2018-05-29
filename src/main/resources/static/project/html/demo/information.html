@@ -1,0 +1,34 @@
+<div ng-cloak>
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <div>信息</div>
+            <div flex></div>
+            <md-button class="md-primary" ng-click="closeInformation()">
+                <div ng-if="isShowInfoForm()">关闭信息</div>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="testForm" class="md-padding">
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>姓名</label>
+                <input md-maxlength="30" name="name" ng-model="detail.name" readonly>
+            </md-input-container>
+
+            <md-input-container>
+                <label>创建日期</label>
+                <md-datepicker ng-model="detail.created" disabled></md-datepicker>
+            </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+            <label>Email</label>
+            <input type="email" name="email" ng-model="detail.email" readonly
+                   minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+        </md-input-container>
+
+        <md-switch class="md-primary" aria-label="enable" ng-model="detail.enable" disabled>
+            是否启用
+        </md-switch>
+    </form>
+</div>

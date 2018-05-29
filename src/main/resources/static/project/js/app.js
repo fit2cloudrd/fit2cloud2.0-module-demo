@@ -160,7 +160,7 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     };
 
     $scope.showInformation = function () {
-        $scope.infoUrl = 'web-public/test/demo/information.html' + '?_t=' + window.appversion;
+        $scope.infoUrl = 'project/html/demo/information.html' + '?_t=' + window.appversion;
         $scope.toggleInfoForm(true);
     };
 
@@ -182,7 +182,7 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
 
     $scope.create = function () {
         // $scope.formUrl用于side-form
-        $scope.formUrl = 'web-public/test/demo/form.html' + '?_t=' + window.appversion;
+        $scope.formUrl = 'project/html/demo/form.html' + '?_t=' + window.appversion;
         // toggleForm由side-form指令生成
         $scope.toggleForm();
     };
@@ -195,14 +195,14 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
 
     $scope.edit = function (item) {
         $scope.item = item;
-        $scope.formUrl = 'web-public/test/demo/form.html' + '?_t=' + window.appversion;
+        $scope.formUrl = 'project/html/demo/form.html' + '?_t=' + window.appversion;
         $scope.toggleForm();
     };
 
     $scope.openDialog = function (item, event) {
         $scope.item = item;
         $mdDialog.show({
-            templateUrl: 'web-public/test/demo/dialog-form.html',
+            templateUrl: 'project/html/demo/dialog-form.html',
             parent: angular.element(document.body),
             scope: $scope,
             preserveScope: true,
@@ -275,7 +275,7 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     $scope.help = function () {
         $scope.msg = "Bottom Sheep Demo";
         $mdBottomSheet.show({
-            templateUrl: 'web-public/test/demo/bottom-sheet.html',
+            templateUrl: 'project/html/demo/bottom-sheet.html',
             scope: $scope,
             preserveScope: true
         }).then(function (clickedItem) {
