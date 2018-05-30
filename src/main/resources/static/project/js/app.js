@@ -149,9 +149,14 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     };
 
     $scope.showDetail = function (item) {
+        // 点击2次关闭
+        if ($scope.selected === item.$$hashKey) {
+            $scope.closeInformation();
+            return;
+        }
         $scope.selected = item.$$hashKey;
         $scope.detail = item;
-        $scope.showInformation()
+        $scope.showInformation();
     };
 
     $scope.closeInformation = function () {
