@@ -449,7 +449,7 @@ ProjectApp.controller('TreeController', function ($scope) {
                     {
                         name: "三级-1"
                     }, {
-                        name: "三级-2",
+                        name: "三级-2"
                         // checked: true
                     }
                 ]
@@ -459,9 +459,9 @@ ProjectApp.controller('TreeController', function ($scope) {
                 name: "二级-3",
                 children: [
                     {
-                        name: "三级-1"
+                        name: "三级-3"
                     }, {
-                        name: "三级-2"
+                        name: "三级-4"
                     }
                 ]
             }
@@ -485,16 +485,29 @@ ProjectApp.controller('TreeController', function ($scope) {
             name: "一级-3",
             children: [
                 {
-                    name: "二级-1"
+                    name: "二级-3"
                 }, {
-                    name: "二级-2"
+                    name: "二级-4"
                 }
             ]
         }
     ];
 
     // 自动生成$scope.api.getSelected();
-    $scope.root = {};
+    $scope.root = {
+        onChange: function (node) {
+            if (node.name === "三级-3") {
+                var levelTwo = $scope.root.getNode("name", "二级-1");
+                if (node.checked) {
+                    $scope.root.toggle(levelTwo, true);
+                    $scope.root.disable(levelTwo, true);
+                } else {
+                    $scope.root.toggle(levelTwo, false);
+                    $scope.root.disable(levelTwo, false);
+                }
+            }
+        }
+    };
     $scope.noroot = {};
 
     $scope.getSelected = function () {
