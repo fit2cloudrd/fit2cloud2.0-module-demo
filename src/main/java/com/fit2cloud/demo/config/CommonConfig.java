@@ -32,5 +32,13 @@ public class CommonConfig {
         return commonThreadPool;
     }
 
+    @Bean(destroyMethod = "shutdown")
+    public CommonThreadPool syncPhysicalMachineThreadPool() {
+        CommonThreadPool commonThreadPool = new CommonThreadPool();
+        commonThreadPool.setCorePoolSize(20);
+        commonThreadPool.setKeepAliveSeconds(3600);
+        return commonThreadPool;
+    }
+
 
 }
