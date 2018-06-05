@@ -44,6 +44,11 @@ var MENUS_TEST = {
                     name: "tree",
                     url: "/tree",
                     templateUrl: "project/html/demo/tree.html" + '?_t=' + window.appversion
+                }, {
+                    title: "Notification",
+                    name: "notice",
+                    url: "/notice",
+                    templateUrl: "project/html/demo/notification.html" + '?_t=' + window.appversion
                 }
             ]
         }, {
@@ -515,4 +520,33 @@ ProjectApp.controller('TreeController', function ($scope) {
         console.log("不带root", JSON.stringify($scope.noroot.getSelected(), 4));
     }
 
+});
+
+ProjectApp.controller('NotificationCtrl', function ($scope, Notification) {
+
+    $scope.count = 1;
+    $scope.show = function () {
+        var msg = "消息通知" + $scope.count++;
+        Notification.show(msg);
+    };
+
+    $scope.info = function () {
+        var msg = "消息通知" + $scope.count++;
+        Notification.info(msg);
+    };
+
+    $scope.success = function () {
+        var msg = "消息通知" + $scope.count++;
+        Notification.success(msg);
+    };
+
+    $scope.warn = function () {
+        var msg = "消息通知" + $scope.count++;
+        Notification.warn(msg);
+    };
+
+    $scope.danger = function () {
+        var msg = "消息通知" + $scope.count++;
+        Notification.danger(msg);
+    };
 });
