@@ -49,6 +49,11 @@ var MENUS_TEST = {
                     name: "notice",
                     url: "/notice",
                     templateUrl: "project/html/demo/notification.html" + '?_t=' + window.appversion
+                }, {
+                    title: "选择添加",
+                    name: "choose",
+                    url: "/choose",
+                    templateUrl: "project/html/demo/choose.html" + '?_t=' + window.appversion
                 }
             ]
         }, {
@@ -549,4 +554,20 @@ ProjectApp.controller('NotificationCtrl', function ($scope, Notification) {
         var msg = "消息通知" + $scope.count++;
         Notification.danger(msg);
     };
+});
+
+ProjectApp.controller('ChooseCtrl', function ($scope) {
+    $scope.items = [
+        {id: 1, name: "长长长长长长长长长长长长长长长长长长长长长长长长长长长看不见"},
+        {id: 2, name: "222"},
+        {id: 3, name: "333"},
+        {id: 4, name: "444"},
+        {id: 5, name: "555"},
+        {id: 6, name: "666"},
+        {id: 7, name: "777"},
+        {id: 8, name: "888"}
+    ];
+
+    $scope.selected = [3, 4];
+    $scope.selected2 = [1, 4];
 });
