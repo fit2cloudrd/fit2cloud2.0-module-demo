@@ -54,6 +54,11 @@ var MENUS_TEST = {
                     name: "choose",
                     url: "/choose",
                     templateUrl: "project/html/demo/choose.html" + '?_t=' + window.appversion
+                }, {
+                    title: "拖拽",
+                    name: "drag",
+                    url: "/drag",
+                    templateUrl: "project/html/demo/drag.html" + '?_t=' + window.appversion
                 }
             ]
         }, {
@@ -570,4 +575,28 @@ ProjectApp.controller('ChooseCtrl', function ($scope) {
 
     $scope.selected = [3, 4];
     $scope.selected2 = [1, 4];
+});
+
+ProjectApp.controller('DragCtrl', function ($scope) {
+    $scope.items = [
+        {id: 1, name: "111"},
+        {id: 2, name: "222"},
+        {id: 3, name: "333"},
+        {id: 4, name: "444"},
+        {id: 5, name: "555"},
+        {id: 6, name: "666"},
+        {id: 7, name: "777"},
+        {id: 8, name: "888"}
+    ];
+
+    $scope.items2 = [
+        {id: 1, name: "111"},
+        {id: 2, name: "222"},
+        {id: 3, name: "333"},
+        {id: 4, name: "444"},
+        {id: 5, name: "555"},
+        {id: 6, name: "666"},
+        {id: 7, name: "777"},
+        {id: 8, name: "888"}
+    ];
 });

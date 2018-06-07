@@ -1,0 +1,37 @@
+<div ng-controller="DragCtrl" ng-cloak>
+    <md-toolbar class="content-toolbar">
+        <div class="md-toolbar-tools">
+            <div>拖拽</div>
+        </div>
+    </md-toolbar>
+    <div class="md-padding" layout="column">
+        <div layout="row">
+            <div flex>
+                <div>
+                    交换
+                </div>
+                <div>
+                    <md-list>
+                        <md-list-item ng-repeat="item in items" drag-repeat="items" index="$index" mode="swap">
+                            <p>{{item.name}}</p>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </div>
+            <div flex>
+                <div>
+                    插入
+                </div>
+                <div>
+                    <md-list>
+                        <md-list-item ng-repeat="item in items2" drag-repeat="items2" index="$index">
+                            <p>{{item.name}}</p>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
