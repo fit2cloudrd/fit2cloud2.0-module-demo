@@ -464,12 +464,48 @@ ProjectApp.controller('TreeController', function ($scope) {
                     {
                         name: "三级-1"
                     }, {
+                        name: "三级-1"
+                    }, {
+                        name: "三级-1"
+                    }, {
+                        name: "三级-1"
+                    }, {
+                        name: "三级-1"
+                    }, {
+                        name: "三级-1"
+                    }, {
                         name: "三级-2"
-                        // checked: true
                     }
                 ]
             }, {
                 name: "二级-2"
+            }, {
+                name: "二级-3",
+                children: [
+                    {
+                        name: "三级-3"
+                    }, {
+                        name: "三级-4"
+                    }
+                ]
+            }, {
+                name: "二级-3",
+                children: [
+                    {
+                        name: "三级-3"
+                    }, {
+                        name: "三级-4"
+                    }
+                ]
+            }, {
+                name: "二级-3",
+                children: [
+                    {
+                        name: "三级-3"
+                    }, {
+                        name: "三级-4"
+                    }
+                ]
             }, {
                 name: "二级-3",
                 children: [
@@ -507,6 +543,39 @@ ProjectApp.controller('TreeController', function ($scope) {
             ]
         }
     ];
+
+    // 也可以用数组
+    $scope.nodes = [
+        {
+            name: "一级-1",
+            children: [
+                {
+                    name: "二级-1"
+                }, {
+                    name: "二级-2"
+                }
+            ]
+        }, {
+            name: "一级-2"
+        }, {
+            name: "一级-3",
+            children: [
+                {
+                    name: "二级-3"
+                }, {
+                    name: "二级-4"
+                }
+            ]
+        }
+    ];
+
+    // 自动生成$scope.api.getSelected();
+    $scope.radio = {
+        selected: "",
+        onChange: function (node) {
+            console.log(node)
+        }
+    };
 
     // 自动生成$scope.api.getSelected();
     $scope.root = {
