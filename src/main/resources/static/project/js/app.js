@@ -136,7 +136,7 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
     // 用于传入后台的参数
     $scope.filters = [
         // 设置默认条件default:true(默认条件不会被删掉)，
-        {key: "status", name: "主机状态", value: "Running", default: true, operator: "="},
+        {key: "status", name: "主机状态", value: "Running", label: "运行中", default: true, operator: "="},
         {key: "status", name: "主机状态", value: "Running", default: true, operator: "="},
         {key: "status", name: "主机状态", value: "Running"},
         {key: "status", name: "主机状态", value: "Running"},
