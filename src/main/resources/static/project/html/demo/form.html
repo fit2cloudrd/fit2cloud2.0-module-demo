@@ -4,50 +4,51 @@
             <div>Test Form</div>
         </div>
     </md-toolbar>
-    <form name="testForm" class="md-padding">
-        <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm>
-                <label>姓名</label>
-                <input md-maxlength="30" required name="name" ng-model="item.name">
-                <div ng-messages="testForm.name.$error">
-                    <div ng-message="required">必填.</div>
-                    <div ng-message="md-maxlength">不要超过30个字符</div>
-                </div>
-            </md-input-container>
+    <md-content>
+        <form name="testForm" class="md-padding">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>姓名</label>
+                    <input md-maxlength="30" required name="name" ng-model="item.name">
+                    <div ng-messages="testForm.name.$error">
+                        <div ng-message="required">必填.</div>
+                        <div ng-message="md-maxlength">不要超过30个字符</div>
+                    </div>
+                </md-input-container>
 
-            <md-input-container>
-                <label>创建日期</label>
-                <md-datepicker ng-model="item.created" required name="created"></md-datepicker>
-                <div ng-messages="testForm.created.$error">
-                    <div ng-message="required">必填.</div>
-                </div>
-            </md-input-container>
-        </div>
-
-        <md-input-container class="md-block">
-            <label>Email</label>
-            <input required type="email" name="email" ng-model="item.email"
-                   minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
-
-            <div class="hint">邮箱将用做登录的唯一标识</div>
-
-            <div ng-messages="testForm.email.$error" role="alert">
-                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                    邮件必须符合邮件格式，并且在10-100字符以内
-                </div>
+                <md-input-container>
+                    <label>创建日期</label>
+                    <md-datepicker ng-model="item.created" required name="created" md-open-on-focus></md-datepicker>
+                    <div ng-messages="testForm.created.$error">
+                        <div ng-message="required">必填.</div>
+                    </div>
+                </md-input-container>
             </div>
-        </md-input-container>
-        <md-choose-file layout="row" file="file" placeholder="请选择文件" required="true"></md-choose-file>
-        <md-switch class="md-primary" aria-label="enable" ng-model="item.enable">
-            是否启用
-        </md-switch>
-    </form>
-    <div layout="row" layout-align="start center" layout-margin>
-        <md-button class="md-raised md-primary" ng-click="save();">
-            保存
-        </md-button>
-        <md-button class="md-raised" ng-click="toggleForm();">
-            取消
-        </md-button>
-    </div>
+
+            <md-input-container class="md-block">
+                <label>Email</label>
+                <input required type="email" name="email" ng-model="item.email" md-maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+                <div class="hint">邮箱将用做登录的唯一标识</div>
+                <div ng-messages="testForm.email.$error" role="alert">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                        邮件必须符合邮件格式，并且在10-100字符以内
+                    </div>
+                </div>
+            </md-input-container>
+
+            <md-choose-file layout="row" file="file" placeholder="请选择文件" required="true"></md-choose-file>
+
+            <md-switch class="md-primary" aria-label="enable" ng-model="item.enable">
+                是否启用
+            </md-switch>
+        </form>
+        <div layout="row" layout-align="start center" layout-margin>
+            <md-button class="md-raised md-primary" ng-click="save();">
+                保存
+            </md-button>
+            <md-button class="md-raised" ng-click="toggleForm();">
+                取消
+            </md-button>
+        </div>
+    </md-content>
 </div>
