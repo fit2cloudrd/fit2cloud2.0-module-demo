@@ -8,7 +8,7 @@
         <div layout="row">
             <div class="md-padding" flex>
                 <div>
-                    不设置宽读和高度：宽度100%(最小宽度400px)，高度根据内容变化(最小高度300px)
+                    不设置宽读和高度：宽度100%(最小宽度400px)，高度根据内容变化(最小高度300px)，selected为所选对象的主键(key="id")
                 </div>
                 <choose data="items" display="name" key="id" selected="selected"></choose>
                 <div>
@@ -18,9 +18,9 @@
             </div>
             <div class="md-padding" flex>
                 <div>
-                    设置宽读和高度：宽度500px(最小宽度400px)，高度400px(最小高度300px)
+                    设置宽读和高度：宽度500px(最小宽度400px)，高度400px(最小高度300px)，selected为所选对象
                 </div>
-                <choose data="items" display="name" key="id" selected="selected2" width="500px" height="400px"></choose>
+                <choose data="items" display="name" key="id" selected="selected2" width="500px" height="400px" type="object"></choose>
                 <div>
                     结果
                 </div>

@@ -643,7 +643,10 @@ ProjectApp.controller('ChooseCtrl', function ($scope) {
     ];
 
     $scope.selected = [3, 4];
-    $scope.selected2 = [1, 4];
+    $scope.selected2 = [
+        {id: 1, name: "长长长长长长长长长长长长长长长长长长长长长长长长长长长看不见"},
+        {id: 4, name: "444"}
+    ];
 });
 
 ProjectApp.controller('DragCtrl', function ($scope) {
