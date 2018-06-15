@@ -28,16 +28,8 @@
 </div>
 
 <!--必要JS-->
-<script th:src="@{'web-public/external/jquery/jquery.min.js'}"></script>
-<script th:src="@{'web-public/external/moment/moment.min.js'}"></script>
-<script th:src="@{'web-public/external/angular/angular.min.js'}"></script>
-<script th:src="@{'web-public/external/angular/angular-ui-router.min.js'}"></script>
-<script th:src="@{'web-public/external/angular/angular-animate.min.js'}"></script>
-<script th:src="@{'web-public/external/angular/angular-aria.min.js'}"></script>
-<script th:src="@{'web-public/external/angular/angular-messages.min.js'}"></script>
-<script th:src="@{'web-public/external/angular-busy/angular-busy.min.js'}"></script>
-<script th:src="@{'web-public/external/angular-material/angular-material.min.js'}"></script>
-<script th:src="@{'web-public/fit2cloud/js/fit2cloud-common.min.js'}"></script>
+<script th:src="@{'web-public/external/external.min.js?t='+${timestamp}}"></script>
+<script th:src="@{'web-public/fit2cloud/js/fit2cloud-common.js?t='+${timestamp}}"></script>
 <script th:inline="javascript" type="text/javascript">
     /*<![CDATA[*/
     window.appversion = [[${timestamp}]];
