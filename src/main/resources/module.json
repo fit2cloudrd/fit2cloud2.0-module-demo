@@ -1,25 +1,20 @@
 {
-  "order": 1,
-  "title": "demo1",
-  "icon": "demo1",
   "menu": [
     {
       "order": 1,
       "title": "仪表盘",
-      "name": "dashboard",
-      "icon": "dashboard",
+      "icon": "account_box",
       "url": "/dashboard",
+      "name": "dashboard",
       "templateUrl": "project/html/demo/dashboard.html",
       "permission": [
-        "dashboard1",
-        "dashboard2",
-        "dashboard3"
+        "DASHBOARD:READ"
       ]
     },
     {
       "order": 2,
       "title": "示例1",
-      "icon": "assignment",
+      "icon": "cloud_queue",
       "children": [
         {
           "order": 1,
@@ -28,18 +23,104 @@
           "url": "/table",
           "templateUrl": "project/html/demo/table.html",
           "permission": [
-            "user1",
-            "user2"
+            "TABLE:READ"
           ]
         },
         {
           "order": 2,
-          "title": "表单",
-          "name": "form",
-          "url": "/form",
-          "templateUrl": "project/html/demo/form.html",
+          "title": "监控",
+          "name": "metric",
+          "url": "/metric",
+          "templateUrl": "project/html/demo/metric.html",
           "permission": [
-            "org1"
+            "METRIC:READ"
+          ]
+        },
+        {
+          "order": 3,
+          "title": "Stepper",
+          "name": "stepper",
+          "url": "/stepper",
+          "templateUrl": "project/html/demo/stepper.html",
+          "permission": [
+            "STEPPER:READ"
+          ]
+        },
+        {
+          "order": 4,
+          "title": "按钮",
+          "name": "button",
+          "url": "/button",
+          "templateUrl": "project/html/demo/buttons.html",
+          "permission": [
+            "BUTTON:READ"
+          ]
+        },
+        {
+          "order": 5,
+          "title": "树",
+          "name": "tree",
+          "url": "/tree",
+          "templateUrl": "project/html/demo/tree.html",
+          "permission": [
+            "TREE:READ"
+          ]
+        },
+        {
+          "order": 6,
+          "title": "Notification",
+          "name": "notice",
+          "url": "/notice",
+          "templateUrl": "project/html/demo/notification.html",
+          "permission": [
+            "NOTICE:READ"
+          ]
+        },
+        {
+          "order": 7,
+          "title": "选择添加",
+          "name": "choose",
+          "url": "/choose",
+          "templateUrl": "project/html/demo/choose.html",
+          "permission": [
+            "CHOOSE:READ"
+          ]
+        },
+        {
+          "order": 8,
+          "title": "拖拽",
+          "name": "drag",
+          "url": "/drag",
+          "templateUrl": "project/html/demo/drag.html",
+          "permission": [
+            "DRAG:READ"
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "示例2",
+      "icon": "bookmark",
+      "children": [
+        {
+          "order": 1,
+          "title": "Loading",
+          "name": "loading",
+          "url": "/loading",
+          "templateUrl": "project/html/demo/loading.html",
+          "permission": [
+            "LOADING:READ"
+          ]
+        },
+        {
+          "order": 2,
+          "title": "other",
+          "name": "other",
+          "url": "/other",
+          "templateUrl": "project/html/demo/other.html",
+          "permission": [
+            "OTHER:READ"
           ]
         }
       ]
@@ -47,102 +128,92 @@
   ],
   "permissionList": [
     {
-      "id": "dashboard1",
-      "order": 1,
-      "title": "demo1",
-      "icon": "demo1",
-      "menu": [
-        {
-          "order": 1,
-          "title": "仪表盘",
-          "name": "dashboard",
-          "icon": "dashboard",
-          "url": "/dashboard",
-          "templateUrl": "project/html/demo/dashboard.html",
-          "permission": [
-            "dashboard1",
-            "dashboard2",
-            "dashboard3"
-          ]
-        },
-        {
-          "order": 2,
-          "title": "示例1",
-          "icon": "assignment",
-          "children": [
-            {
-              "order": 1,
-              "title": "表格",
-              "name": "table",
-              "url": "/table",
-              "templateUrl": "project/html/demo/table.html",
-              "permission": [
-                "user1",
-                "user2"
-              ]
-            },
-            {
-              "order": 2,
-              "title": "表单",
-              "name": "form",
-              "url": "/form",
-              "templateUrl": "project/html/demo/form.html",
-              "permission": [
-                "org1"
-              ]
-            }
-          ]
-        }
-      ],
-      "permissionList": [
-        {
-          "id": "dashboard1",
-          "name": "概览统计"
-        },
-        {
-          "id": "dashboard2",
-          "name": "模块状态"
-        },
-        {
-          "id": "dashboard3",
-          "name": "用户登陆"
-        },
-        {
-          "id": "user1",
-          "name": "用户列表"
-        },
-        {
-          "id": "user2",
-          "name": "用户角色"
-        },
-        {
-          "id": "org1",
-          "name": "组织列表"
-        }
+      "id": "DASHBOARD:READ",
+      "name": "仪盘表",
+      "menu": "仪盘表",
+      "roles": [
+        "ADMIN"
       ]
-    },{
-      "id": "dashboard1",
-      "name": "概览统计"
     },
     {
-      "id": "dashboard2",
-      "name": "模块状态"
+      "id": "TABLE:READ",
+      "name": "表格",
+      "menu": "表格",
+      "roles": [
+        "ADMIN"
+      ]
     },
     {
-      "id": "dashboard3",
-      "name": "用户登陆"
+      "id": "METRIC:READ",
+      "name": "监控",
+      "menu": "监控",
+      "roles": [
+        "ADMIN"
+      ]
     },
     {
-      "id": "user1",
-      "name": "用户列表"
+      "id": "STEPPER:READ",
+      "name": "Stepper",
+      "menu": "Stepper",
+      "roles": [
+        "ADMIN"
+      ]
     },
     {
-      "id": "user2",
-      "name": "用户角色"
+      "id": "BUTTON:READ",
+      "name": "按钮",
+      "menu": "按钮",
+      "roles": [
+        "ADMIN"
+      ]
     },
     {
-      "id": "org1",
-      "name": "组织列表"
+      "id": "TREE:READ",
+      "name": "树",
+      "menu": "树",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "NOTICE:READ",
+      "name": "提示",
+      "menu": "提示",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "CHOOSE:READ",
+      "name": "选择添加",
+      "menu": "选择添加",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "DRAG:READ",
+      "name": "拖拽",
+      "menu": "拖拽",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "LOADING:READ",
+      "name": "loading",
+      "menu": "loading",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "OTHER:READ",
+      "name": "other",
+      "menu": "other",
+      "roles": [
+        "ADMIN"
+      ]
     }
   ]
 }

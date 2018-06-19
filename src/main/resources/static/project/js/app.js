@@ -15,7 +15,8 @@ var MENUS_TEST = {
             name: "dashboard",
             url: "/dashboard",
             templateUrl: "project/html/demo/dashboard.html" + '?_t=' + window.appversion
-        }, {
+        },
+        {
             title: "示例1",
             icon: "assignment",
             children: [
@@ -61,7 +62,8 @@ var MENUS_TEST = {
                     templateUrl: "project/html/demo/drag.html" + '?_t=' + window.appversion
                 }
             ]
-        }, {
+        },
+        {
             title: "示例2",
             icon: "assignment",
             children: [

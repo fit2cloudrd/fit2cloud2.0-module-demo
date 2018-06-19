@@ -2,8 +2,14 @@ package com.fit2cloud.demo.config;
 
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
-import com.fit2cloud.demo.security.ShiroDBRealm;
+import com.fit2cloud.commons.server.constants.SessionConstants;
+import com.fit2cloud.commons.server.security.CookieIdGenerator;
+import com.fit2cloud.commons.server.security.SessionRedisDao;
+import com.fit2cloud.commons.server.security.SsoFilter;
+import com.fit2cloud.commons.utils.GlobalConfigurations;
+import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.session.mgt.SessionManager;
+import org.apache.shiro.session.mgt.eis.MemorySessionDAO;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -19,40 +25,50 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 
-import java.util.EnumSet;
-import java.util.Map;
-
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
+import java.util.EnumSet;
+import java.util.Map;
+import java.util.Objects;
 
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
+    @Bean
+    public ShiroFilterFactoryBean getShiroFilterFactoryBean(DefaultWebSecurityManager sessionManager) {
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        shiroFilterFactoryBean.setSecurityManager(sessionManager);
+        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+        shiroFilterFactoryBean.setSuccessUrl("/");
+
+        shiroFilterFactoryBean.getFilters().put("sso", new SsoFilter());
+
+        Map<String, String> filterChainDefinitionMap = shiroFilterFactoryBean.getFilterChainDefinitionMap();
+        filterChainDefinitionMap.put("/resource/**", "anon");
+        filterChainDefinitionMap.put("/login", "anon");
+        filterChainDefinitionMap.put("/eureka/**", "anon");
+        filterChainDefinitionMap.put("/web-public/**", "anon");
+        filterChainDefinitionMap.put("/project/**", "anon");
+
+        filterChainDefinitionMap.put("/api/**", "anon");
+        filterChainDefinitionMap.put("/403", "anon");
+        filterChainDefinitionMap.put("/module/**", "anon");
+        filterChainDefinitionMap.put("/**", "sso, authc");
+        return shiroFilterFactoryBean;
+    }
+
     @Bean(name = "shiroFilter")
-    public FilterRegistrationBean<Filter> shiroFilter() throws Exception {
+    public FilterRegistrationBean<Filter> shiroFilter(ShiroFilterFactoryBean shiroFilterFactoryBean) throws Exception {
         FilterRegistrationBean<Filter> registration = new FilterRegistrationBean<>();
-        registration.setFilter((Filter) getShiroFilterFactoryBean().getObject());
+        registration.setFilter((Filter) Objects.requireNonNull(shiroFilterFactoryBean.getObject()));
         registration.setDispatcherTypes(EnumSet.allOf(DispatcherType.class));
         return registration;
     }
 
     @Bean
-    public ShiroFilterFactoryBean getShiroFilterFactoryBean() {
-        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
-        shiroFilterFactoryBean.setSecurityManager(securityManager());
-        shiroFilterFactoryBean.setLoginUrl("/login");
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
-        shiroFilterFactoryBean.setSuccessUrl("/");
-
-        Map<String, String> filterChainDefinitionMap = shiroFilterFactoryBean.getFilterChainDefinitionMap();
-        filterChainDefinitionMap.put("/resource/**", "anon");
-        filterChainDefinitionMap.put("/page/**", "anon");
-        filterChainDefinitionMap.put("/login", "anon");
-        filterChainDefinitionMap.put("/api/**", "anon");
-        filterChainDefinitionMap.put("/403", "anon");
-        filterChainDefinitionMap.put("/**", "authc");
-
-        return shiroFilterFactoryBean;
+    public MemoryConstrainedCacheManager memoryConstrainedCacheManager() {
+        return new MemoryConstrainedCacheManager();
     }
 
     /**
@@ -61,16 +77,17 @@ public class ShiroConfig {
      * http://www.debugrun.com/a/NKS9EJQ.html
      */
     @Bean(name = "securityManager")
-    public DefaultWebSecurityManager securityManager() {
+    public DefaultWebSecurityManager securityManager(SessionManager sessionManager, MemoryConstrainedCacheManager memoryConstrainedCacheManager) {
         DefaultWebSecurityManager dwsm = new DefaultWebSecurityManager();
-        dwsm.setSessionManager(sessionManager());
+        dwsm.setSessionManager(sessionManager);
+        dwsm.setCacheManager(memoryConstrainedCacheManager);
         return dwsm;
     }
 
     @Bean(name = "shiroDBRealm")
     @DependsOn("lifecycleBeanPostProcessor")
-    public ShiroDBRealm getShiroDBRealm() {
-        return new ShiroDBRealm();
+    public com.fit2cloud.commons.server.security.ShiroDBRealm getShiroDBRealm() {
+        return new com.fit2cloud.commons.server.security.ShiroDBRealm();
     }
 
     @Bean(name = "lifecycleBeanPostProcessor")
@@ -86,23 +103,32 @@ public class ShiroConfig {
     }
 
     @Bean
-    public AuthorizationAttributeSourceAdvisor getAuthorizationAttributeSourceAdvisor() {
+    public AuthorizationAttributeSourceAdvisor getAuthorizationAttributeSourceAdvisor(DefaultWebSecurityManager sessionManager) {
         AuthorizationAttributeSourceAdvisor aasa = new AuthorizationAttributeSourceAdvisor();
-        aasa.setSecurityManager(securityManager());
+        aasa.setSecurityManager(sessionManager);
         return new AuthorizationAttributeSourceAdvisor();
     }
 
     @Bean
-    public SessionManager sessionManager() {
+    @DependsOn("globalConfigurations")
+    public SessionManager sessionManager(SessionRedisDao sessionRedisDao, MemoryConstrainedCacheManager memoryConstrainedCacheManager) {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionIdUrlRewritingEnabled(false);
-        sessionManager.setGlobalSessionTimeout(28800000);
+        sessionManager.setGlobalSessionTimeout(SessionConstants.expired);
         sessionManager.setDeleteInvalidSessions(true);
         sessionManager.setSessionValidationSchedulerEnabled(true);
         SimpleCookie sessionIdCookie = new SimpleCookie();
-        sessionIdCookie.setName("f2c.resource.boot.sessionid");
-        sessionIdCookie.setPath("/");
         sessionManager.setSessionIdCookie(sessionIdCookie);
+        sessionIdCookie.setPath("/");
+        sessionIdCookie.setName(GlobalConfigurations.getCookieName());
+        sessionManager.setCacheManager(memoryConstrainedCacheManager);
+        // release use redis
+        if (GlobalConfigurations.isReleaseMode()) {
+            sessionRedisDao.setSessionIdGenerator(new CookieIdGenerator());
+            sessionManager.setSessionDAO(sessionRedisDao);
+        } else {
+            ((MemorySessionDAO) sessionManager.getSessionDAO()).setSessionIdGenerator(new CookieIdGenerator());
+        }
         return sessionManager;
     }
 
@@ -117,7 +143,7 @@ public class ShiroConfig {
     @EventListener
     public void handleContextRefresh(ContextRefreshedEvent event) {
         ApplicationContext context = event.getApplicationContext();
-
-        ((DefaultWebSecurityManager) context.getBean("securityManager")).setRealm(getShiroDBRealm());
+        com.fit2cloud.commons.server.security.ShiroDBRealm shiroDBRealm = (com.fit2cloud.commons.server.security.ShiroDBRealm) context.getBean("shiroDBRealm");
+        ((DefaultWebSecurityManager) context.getBean("securityManager")).setRealm(shiroDBRealm);
     }
 }
