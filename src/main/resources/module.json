@@ -47,7 +47,7 @@
   ],
   "permissionList": [
     {
-      "id": "dashboard1",{
+      "id": "dashboard1",
       "order": 1,
       "title": "demo1",
       "icon": "demo1",
