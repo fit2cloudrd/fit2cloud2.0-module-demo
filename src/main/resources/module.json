@@ -144,6 +144,15 @@
       ]
     },
     {
+      "id": "CLOUD_SERVER:READ",
+      "name": "查看云主机",
+      "menu": "云主机",
+      "roles": [
+        "ADMIN",
+        "ORGADMIN"
+      ]
+    },
+    {
       "id": "METRIC:READ",
       "name": "监控",
       "menu": "监控",
