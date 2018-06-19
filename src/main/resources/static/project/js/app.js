@@ -320,44 +320,8 @@ ProjectApp.controller('MetricController', function ($scope) {
             {
                 resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
                 resourceName: 'test',
-                resourceType: 'VIRTUALMACHINE',
-                stat: 'average',
-                metric: 'CpuUsage'
-            },
-            {
-                resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
-                resourceName: 'test',
-                resourceType: 'VIRTUALMACHINE',
-                stat: 'average',
-                metric: 'CpuUsageInMhz'
-            },
-            {
-                resourceId: '9430a5ff-00a3-4000-8b04-f3d8bdc7fadb',
-                resourceName: 'test',
-                resourceType: 'HOSTSYSTEM',
-                stat: 'average',
-                metric: 'HostCpuInMHZ'
-            },
-            {
-                resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
-                resourceName: 'test',
-                resourceType: 'VIRTUALMACHINE',
-                stat: 'average',
-                metric: 'MemoryUsage'
-            },
-            {
-                resourceId: '6d8f69b3-0355-4276-a624-4f57af9d0d85',
-                resourceName: 'test',
-                resourceType: 'VIRTUALMACHINE',
-                stat: 'average',
-                metric: 'MemoryUsageInMB'
-            },
-            {
-                resourceId: '9430a5ff-00a3-4000-8b04-f3d8bdc7fadb',
-                resourceName: 'test',
-                resourceType: 'HOSTSYSTEM',
-                stat: 'average',
-                metric: 'HostMemoryInMB'
+                metricSource: "API",
+                metric: 'SERVER_CPU_USAGE'
             }
         ]
     }
