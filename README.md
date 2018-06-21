@@ -1,8 +1,7 @@
-# fit2cloud2.0-management-center
+# fit2cloud2.0-DEMO
 
-### API: http://localhost:8888/swagger-ui.html
 
-# FIT2CLOUD 2.0 管理中心
+# FIT2CLOUD 2.0 DEMO
 
 - [要求](#要求)
 - [代码规范](#代码规范)
