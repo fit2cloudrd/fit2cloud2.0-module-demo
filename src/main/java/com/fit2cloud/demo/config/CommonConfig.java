@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
  *
  */
 @PropertySource(value = {
-        "file:/opt/fit2cloud/fit2cloud2.0.properties",
+        "file:/opt/fit2cloud/conf/fit2cloud.properties",
         "classpath:properties/global.properties",
         "classpath:properties/quartz.properties"
 }, encoding = "UTF-8", ignoreResourceNotFound = true)
