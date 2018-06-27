@@ -6,3 +6,43 @@
  * 项目CSS，有特殊需求就写在这里。
 **/
 
+
+table.db{
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    line-height: 20px;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+table.db tbody,thead,tr{
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+table.db td{
+    max-width: none;
+    min-width: 0px;
+    white-space: normal;
+    position: relative;
+    vertical-align: top;
+    word-wrap: break-word;
+    padding: 4px 16px;
+    text-align: left;
+    width: auto;
+}

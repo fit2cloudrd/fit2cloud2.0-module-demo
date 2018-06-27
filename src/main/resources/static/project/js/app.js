@@ -131,7 +131,13 @@ ProjectApp.controller('TableCtrl', function ($scope, $mdDialog, $mdBottomSheet, 
         {key: "os", name: "操作系统", directive: "filter-contains"},
         {key: "localIp", name: "内网IP", directive: "filter-contains"},
         //增加一个异步字典转换的例子，将请求内容转换为value,label格式
-        {key: "ajax", name: "异步字典", directive: "filter-select-ajax", url: "demo/status", convert: {value: "id", label: "name"}}
+        {
+            key: "ajax",
+            name: "异步字典",
+            directive: "filter-select-ajax",
+            url: "demo/status",
+            convert: {value: "id", label: "name"}
+        }
 
     ];
 
@@ -567,7 +573,29 @@ ProjectApp.controller('TreeController', function ($scope) {
 
 });
 
-ProjectApp.controller('NotificationCtrl', function ($scope, Notification) {
+ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDialog,$http) {
+
+    $scope.open = function () {
+        $mdDialog.show({
+            templateUrl: 'project/html/switch-source.html',
+            parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,
+            targetEvent: event,
+            clickOutsideToClose: false
+        });
+    };
+
+    $scope.getUserRoleList = function () {
+        $http.get("user/current/user/role").then(function (response) {
+            $scope.userRoleList = response.data.data;
+            $scope.handleUserRole();
+        }, function (data) {
+            $log.error("data", data);
+        });
+    };
+
+    $scope.getUserRoleList();
 
     $scope.count = 1;
     $scope.show = function () {
