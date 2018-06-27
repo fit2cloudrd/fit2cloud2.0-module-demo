@@ -117,8 +117,8 @@ public interface F2CServerInfoConfig {
 
 #### 权限注意事项
 
-   - @F2CPermission、@F2CRequiresPermissions、@RequiresPermissions（shiro）这3个不能同时作用于一个method，会校验3次权限
-   - 当不需要将权限加到serverInfo(已经加入)，最好直接用shiro的@RequiresPermissions注解来校验权限
+   - @F2CPermission、@F2CRequiresPermissions、@RequiresPermissions（shiro）这3个注解在同一个方法上只能注解一个
+   - 权限定义只能注解定义一次(@F2CPermission、@F2CRequiresPermissions)，后续使用请用RequiresPermissions注解去校验
    - Java8 提供重复注解@Repeatble。所以在方法上注解多个@F2CPermission，会自动编译成@F2CRequiresPermissions。注意这里多个@F2CPermission之间的关系是OR，如果想用AND就不能这样写。
 
 #### 前端页面
