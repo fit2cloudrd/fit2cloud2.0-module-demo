@@ -636,7 +636,11 @@ ProjectApp.controller('ChooseCtrl', function ($scope) {
         {id: 8, name: "888"}
     ];
 
-    $scope.selected = [3, 4];
+    $scope.loadingLayer = HttpUtils.get("demo/test1/2000", function () {
+        $scope.selected = [3, 4];
+        $scope.done = true;
+    });
+
     $scope.selected2 = [
         {id: 1, name: "长长长长长长长长长长长长长长长长长长长长长长长长长长长看不见"},
         {id: 4, name: "444"}
