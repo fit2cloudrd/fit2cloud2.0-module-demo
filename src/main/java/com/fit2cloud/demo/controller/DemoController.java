@@ -1,5 +1,6 @@
 package com.fit2cloud.demo.controller;
 
+import com.fit2cloud.commons.server.module.annotation.F2CPermission;
 import com.fit2cloud.commons.server.service.CloudAccountService;
 import com.fit2cloud.commons.utils.PageUtils;
 import com.fit2cloud.commons.utils.Pager;
@@ -30,6 +31,8 @@ public class DemoController {
     }
 
     @RequestMapping(value = "/test2/{module}")
+    @F2CPermission(id = "DDD",name = "DDD")
+    @F2CPermission(id="DDD",name = "SSS")
     public Object resultHolder(@PathVariable String module) {
         return module;
     }
