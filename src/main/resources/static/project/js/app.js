@@ -2,7 +2,7 @@
  * 启动app，加载菜单
  */
 
-var ProjectApp = angular.module('ProjectApp', ['f2c.common']);
+var ProjectApp = angular.module('ProjectApp', ['f2c.process']);
 
 // 测试专用
 var MENUS_TEST = {
@@ -573,7 +573,7 @@ ProjectApp.controller('TreeController', function ($scope) {
 
 });
 
-ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDialog,$http) {
+ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDialog, $http) {
 
     $scope.open = function () {
         $mdDialog.show({
@@ -624,7 +624,7 @@ ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDia
     };
 });
 
-ProjectApp.controller('ChooseCtrl', function ($scope) {
+ProjectApp.controller('ChooseCtrl', function ($scope, HttpUtils) {
     $scope.items = [
         {id: 1, name: "长长长长长长长长长长长长长长长长长长长长长长长长长长长看不见"},
         {id: 2, name: "222"},

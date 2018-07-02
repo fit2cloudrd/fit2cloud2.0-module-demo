@@ -13,7 +13,7 @@
     <link rel="stylesheet" th:href="@{'web-public/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
 
     <!--可选CSS-->
-
+    <link rel="stylesheet" th:href="@{'web-public/fit2cloud/css/process-design.css?t='+${timestamp}}">
     <!--项目CSS-->
     <link rel="stylesheet" th:href="@{'project/css/project-style.css?t='+${timestamp}}">
 </head>
@@ -37,6 +37,7 @@
 </script>
 
 <!--可选JS-->
+<script th:src="@{'web-public/fit2cloud/js/process-design.js?t='+${timestamp}}"></script>
 <script th:src="@{'web-public/external/echarts/echarts.min.js'}"></script>
 <script th:src="@{'web-public/external/echarts/fit2cloud-echarts-theme.js?t='+${timestamp}}"></script>
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+
 import java.util.Map;
 
 
@@ -31,8 +32,8 @@ public class DemoController {
     }
 
     @RequestMapping(value = "/test2/{module}")
-    @F2CPermission(id = "DDD",name = "DDD")
-    @F2CPermission(id="DDD",name = "SSS")
+    @F2CPermission(id = "DDD", name = "DDD")
+    @F2CPermission(id = "SSS", name = "SSS")
     public Object resultHolder(@PathVariable String module) {
         return module;
     }
