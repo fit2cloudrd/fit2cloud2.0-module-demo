@@ -2,7 +2,8 @@
  * 启动app，加载菜单
  */
 
-var ProjectApp = angular.module('ProjectApp', ['f2c.process']);
+// 流程管理使用方法：1、加载process-design.css和process-design.js，加载f2c.process，配置module.json
+var ProjectApp = angular.module('ProjectApp', ['f2c.common', 'f2c.process']);
 
 // 测试专用
 var MENUS_TEST = {
