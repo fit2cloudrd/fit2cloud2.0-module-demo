@@ -99,11 +99,11 @@
         {
           "order": 8,
           "title": "流程管理",
-          "name": "flow",
+          "name": "flow_manager",
           "url": "/flow",
           "templateUrl": "web-public/fit2cloud/html/process/process-management.html",
           "permission": [
-            "FLOW"
+            "FLOW_MANAGER"
           ]
         }
       ]
