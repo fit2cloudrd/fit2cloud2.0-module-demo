@@ -427,6 +427,7 @@ ProjectApp.controller('WizardController', function ($scope, HttpUtils, Notificat
 });
 
 ProjectApp.controller('TreeController', function ($scope) {
+    $scope.option = {radio: 'any'};
     $scope.node = {
         name: "一级",
         collapsed: false,
