@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" sizes="16x16" th:href="@{'web-public/fit2cloud/img/fit2cloud/favicon.bmp'}">
-    <title>Demo</title>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="${IndexConstants['ui.favicon']}">
+    <title th:text="${IndexConstants['ui.title']}"></title>
     <!--必要CSS-->
     <link rel="stylesheet" th:href="@{'web-public/external/angular-material/angular-material.min.css'}">
     <link rel="stylesheet" th:href="@{'web-public/external/angular-busy/angular-busy.min.css'}">
