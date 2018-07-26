@@ -1,6 +1,6 @@
 package com.fit2cloud.demo.controller;
 
-import com.fit2cloud.common.web.WebConstants;
+import com.fit2cloud.commons.server.constants.WebConstants;
 import com.fit2cloud.commons.server.utils.SessionUtils;
 import com.fit2cloud.commons.utils.GlobalConfigurations;
 import io.swagger.annotations.Api;
