@@ -427,6 +427,9 @@ ProjectApp.controller('WizardController', function ($scope, HttpUtils, Notificat
 });
 
 ProjectApp.controller('TreeController', function ($scope) {
+    $scope.option = {
+        select: "folder" //file, folder, all
+    };
     $scope.node = {
         name: "一级",
         collapsed: false,
@@ -458,34 +461,14 @@ ProjectApp.controller('TreeController', function ($scope) {
                     {
                         name: "三级-3"
                     }, {
-                        name: "三级-4"
-                    }
-                ]
-            }, {
-                name: "二级-3",
-                children: [
-                    {
-                        name: "三级-3"
-                    }, {
-                        name: "三级-4"
-                    }
-                ]
-            }, {
-                name: "二级-3",
-                children: [
-                    {
-                        name: "三级-3"
-                    }, {
-                        name: "三级-4"
-                    }
-                ]
-            }, {
-                name: "二级-3",
-                children: [
-                    {
-                        name: "三级-3"
-                    }, {
-                        name: "三级-4"
+                        name: "三级-4",
+                        children: [
+                            {
+                                name: "四级-1"
+                            }, {
+                                name: "四级-2"
+                            }
+                        ]
                     }
                 ]
             }
@@ -504,32 +487,8 @@ ProjectApp.controller('TreeController', function ($scope) {
                 }
             ]
         }, {
-            name: "一级-2"
-        }, {
-            name: "一级-3",
-            children: [
-                {
-                    name: "二级-3"
-                }, {
-                    name: "二级-4"
-                }
-            ]
-        }
-    ];
-
-    // 也可以用数组
-    $scope.nodes = [
-        {
-            name: "一级-1",
-            children: [
-                {
-                    name: "二级-1"
-                }, {
-                    name: "二级-2"
-                }
-            ]
-        }, {
-            name: "一级-2"
+            name: "一级-2",
+            children: []
         }, {
             name: "一级-3",
             children: [
@@ -554,7 +513,7 @@ ProjectApp.controller('TreeController', function ($scope) {
     $scope.root = {
         onChange: function (node) {
             if (node.name === "三级-3") {
-                var levelTwo = $scope.root.getNode("name", "二级-1");
+                let levelTwo = $scope.root.getNode("name", "二级-1");
                 if (node.checked) {
                     $scope.root.toggle(levelTwo, true);
                     $scope.root.disable(levelTwo, true);
@@ -565,6 +524,7 @@ ProjectApp.controller('TreeController', function ($scope) {
             }
         }
     };
+
     $scope.noroot = {};
 
     $scope.getSelected = function () {
