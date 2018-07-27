@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" sizes="16x16" th:href="@{'web-public/fit2cloud/img/fit2cloud/favicon.bmp'}">
-    <title>Demo</title>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="${IndexConstants['ui.favicon']}">
+    <title th:text="${IndexConstants['ui.title']}"></title>
     <!--必要CSS-->
     <link rel="stylesheet" th:href="@{'web-public/external/angular-material/angular-material.min.css'}">
     <link rel="stylesheet" th:href="@{'web-public/external/angular-busy/angular-busy.min.css'}">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" th:href="@{'web-public/fit2cloud/css/fit2cloud-style.css?t='+${timestamp}}">
 
     <!--可选CSS-->
-
+    <link rel="stylesheet" th:href="@{'web-public/fit2cloud/css/process-design.css?t='+${timestamp}}">
     <!--项目CSS-->
     <link rel="stylesheet" th:href="@{'project/css/project-style.css?t='+${timestamp}}">
 </head>
@@ -33,10 +33,12 @@
 <script th:inline="javascript" type="text/javascript">
     /*<![CDATA[*/
     window.appversion = [[${timestamp}]];
+    window.IndexConstants = [[${IndexConstants}]];
     /*]]>*/
 </script>
 
 <!--可选JS-->
+<script th:src="@{'web-public/fit2cloud/js/process-design.js?t='+${timestamp}}"></script>
 <script th:src="@{'web-public/external/echarts/echarts.min.js'}"></script>
 <script th:src="@{'web-public/external/echarts/fit2cloud-echarts-theme.js?t='+${timestamp}}"></script>
 

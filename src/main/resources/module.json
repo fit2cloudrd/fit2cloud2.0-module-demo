@@ -95,6 +95,16 @@
           "permission": [
             "DRAG:READ"
           ]
+        },
+        {
+          "order": 9,
+          "title": "流程管理",
+          "name": "flow_manager",
+          "url": "/flow",
+          "templateUrl": "web-public/fit2cloud/html/process/process-management.html",
+          "permission": [
+            "FLOW_MANAGER"
+          ]
         }
       ]
     },
@@ -204,6 +214,14 @@
       "id": "DRAG:READ",
       "name": "拖拽",
       "menu": "拖拽",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "FLOW",
+      "name": "流程管理",
+      "menu": "流程管理",
       "roles": [
         "ADMIN"
       ]

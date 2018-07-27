@@ -2,7 +2,8 @@
  * 启动app，加载菜单
  */
 
-var ProjectApp = angular.module('ProjectApp', ['f2c.common']);
+// 流程管理使用方法：1、加载process-design.css和process-design.js，加载f2c.process，配置module.json
+var ProjectApp = angular.module('ProjectApp', ['f2c.common', 'f2c.process']);
 
 // 测试专用
 var MENUS_TEST = {
@@ -426,6 +427,9 @@ ProjectApp.controller('WizardController', function ($scope, HttpUtils, Notificat
 });
 
 ProjectApp.controller('TreeController', function ($scope) {
+    $scope.option = {
+        select: "folder" //file, folder, all
+    };
     $scope.node = {
         name: "一级",
         collapsed: false,
@@ -457,34 +461,14 @@ ProjectApp.controller('TreeController', function ($scope) {
                     {
                         name: "三级-3"
                     }, {
-                        name: "三级-4"
-                    }
-                ]
-            }, {
-                name: "二级-3",
-                children: [
-                    {
-                        name: "三级-3"
-                    }, {
-                        name: "三级-4"
-                    }
-                ]
-            }, {
-                name: "二级-3",
-                children: [
-                    {
-                        name: "三级-3"
-                    }, {
-                        name: "三级-4"
-                    }
-                ]
-            }, {
-                name: "二级-3",
-                children: [
-                    {
-                        name: "三级-3"
-                    }, {
-                        name: "三级-4"
+                        name: "三级-4",
+                        children: [
+                            {
+                                name: "四级-1"
+                            }, {
+                                name: "四级-2"
+                            }
+                        ]
                     }
                 ]
             }
@@ -503,32 +487,8 @@ ProjectApp.controller('TreeController', function ($scope) {
                 }
             ]
         }, {
-            name: "一级-2"
-        }, {
-            name: "一级-3",
-            children: [
-                {
-                    name: "二级-3"
-                }, {
-                    name: "二级-4"
-                }
-            ]
-        }
-    ];
-
-    // 也可以用数组
-    $scope.nodes = [
-        {
-            name: "一级-1",
-            children: [
-                {
-                    name: "二级-1"
-                }, {
-                    name: "二级-2"
-                }
-            ]
-        }, {
-            name: "一级-2"
+            name: "一级-2",
+            children: []
         }, {
             name: "一级-3",
             children: [
@@ -553,7 +513,7 @@ ProjectApp.controller('TreeController', function ($scope) {
     $scope.root = {
         onChange: function (node) {
             if (node.name === "三级-3") {
-                var levelTwo = $scope.root.getNode("name", "二级-1");
+                let levelTwo = $scope.root.getNode("name", "二级-1");
                 if (node.checked) {
                     $scope.root.toggle(levelTwo, true);
                     $scope.root.disable(levelTwo, true);
@@ -564,6 +524,7 @@ ProjectApp.controller('TreeController', function ($scope) {
             }
         }
     };
+
     $scope.noroot = {};
 
     $scope.getSelected = function () {
@@ -573,7 +534,7 @@ ProjectApp.controller('TreeController', function ($scope) {
 
 });
 
-ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDialog,$http) {
+ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDialog, $http) {
 
     $scope.open = function () {
         $mdDialog.show({
@@ -624,7 +585,7 @@ ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDia
     };
 });
 
-ProjectApp.controller('ChooseCtrl', function ($scope) {
+ProjectApp.controller('ChooseCtrl', function ($scope, HttpUtils) {
     $scope.items = [
         {id: 1, name: "长长长长长长长长长长长长长长长长长长长长长长长长长长长看不见"},
         {id: 2, name: "222"},
@@ -636,7 +597,11 @@ ProjectApp.controller('ChooseCtrl', function ($scope) {
         {id: 8, name: "888"}
     ];
 
-    $scope.selected = [3, 4];
+    $scope.loadingLayer = HttpUtils.get("demo/test1/2000", function () {
+        $scope.selected = [3, 4];
+        $scope.done = true;
+    });
+
     $scope.selected2 = [
         {id: 1, name: "长长长长长长长长长长长长长长长长长长长长长长长长长长长看不见"},
         {id: 4, name: "444"}
