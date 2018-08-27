@@ -1,7 +1,7 @@
 package com.fit2cloud.demo.controller;
 
-import com.fit2cloud.common.web.WebConstants;
 import com.fit2cloud.commons.server.constants.IndexConstants;
+import com.fit2cloud.commons.server.constants.WebConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

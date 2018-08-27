@@ -61,6 +61,11 @@ var MENUS_TEST = {
                     name: "drag",
                     url: "/drag",
                     templateUrl: "project/html/demo/drag.html" + '?_t=' + window.appversion
+                }, {
+                    title: "文件",
+                    name: "file",
+                    url: "/file",
+                    templateUrl: "project/html/demo/file.html" + '?_t=' + window.appversion
                 }
             ]
         },
