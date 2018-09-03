@@ -1,256 +1,149 @@
 {
-    "menu": [
+  "menu": [
+    {
+      "order": 1,
+      "title": "仪表盘",
+      "icon": "account_box",
+      "url": "/dashboard",
+      "name": "dashboard",
+      "templateUrl": "project/html/demo/dashboard.html",
+      "permission": [
+        "ALL"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "示例1",
+      "icon": "cloud_queue",
+      "children": [
         {
-            "order": 1,
-            "title": "仪表盘",
-            "icon": "account_box",
-            "url": "/dashboard",
-            "name": "dashboard",
-            "templateUrl": "project/html/demo/dashboard.html",
-            "permission": [
-                "DASHBOARD:READ"
-            ]
+          "order": 1,
+          "title": "表格",
+          "name": "table",
+          "url": "/table",
+          "templateUrl": "project/html/demo/table.html",
+          "permission": [
+            "ALL"
+          ]
         },
         {
-            "order": 2,
-            "title": "示例1",
-            "icon": "cloud_queue",
-            "children": [
-                {
-                    "order": 1,
-                    "title": "表格",
-                    "name": "table",
-                    "url": "/table",
-                    "templateUrl": "project/html/demo/table.html",
-                    "permission": [
-                        "TABLE:READ"
-                    ]
-                },
-                {
-                    "order": 2,
-                    "title": "监控",
-                    "name": "metric",
-                    "url": "/metric",
-                    "templateUrl": "project/html/demo/metric.html",
-                    "permission": [
-                        "METRIC:READ"
-                    ]
-                },
-                {
-                    "order": 3,
-                    "title": "Stepper",
-                    "name": "stepper",
-                    "url": "/stepper",
-                    "templateUrl": "project/html/demo/stepper.html",
-                    "permission": [
-                        "STEPPER:READ"
-                    ]
-                },
-                {
-                    "order": 4,
-                    "title": "按钮",
-                    "name": "button",
-                    "url": "/button",
-                    "templateUrl": "project/html/demo/buttons.html",
-                    "permission": [
-                        "BUTTON:READ"
-                    ]
-                },
-                {
-                    "order": 5,
-                    "title": "树",
-                    "name": "tree",
-                    "url": "/tree",
-                    "templateUrl": "project/html/demo/tree.html",
-                    "permission": [
-                        "TREE:READ"
-                    ]
-                },
-                {
-                    "order": 6,
-                    "title": "Notification",
-                    "name": "notice",
-                    "url": "/notice",
-                    "templateUrl": "project/html/demo/notification.html",
-                    "permission": [
-                        "NOTICE:READ"
-                    ]
-                },
-                {
-                    "order": 7,
-                    "title": "选择添加",
-                    "name": "choose",
-                    "url": "/choose",
-                    "templateUrl": "project/html/demo/choose.html",
-                    "permission": [
-                        "CHOOSE:READ"
-                    ]
-                },
-                {
-                    "order": 8,
-                    "title": "拖拽",
-                    "name": "drag",
-                    "url": "/drag",
-                    "templateUrl": "project/html/demo/drag.html",
-                    "permission": [
-                        "DRAG:READ"
-                    ]
-                },
-                {
-                    "order": 9,
-                    "title": "流程管理",
-                    "name": "flow_manager",
-                    "url": "/flow",
-                    "templateUrl": "web-public/fit2cloud/html/process/process-management.html",
-                    "permission": [
-                        "FLOW_MANAGER"
-                    ]
-                },
-                {
-                    "order": 10,
-                    "title": "文件上传",
-                    "name": "file",
-                    "url": "/file",
-                    "templateUrl": "project/html/demo/file.html",
-                    "permission": [
-                        "ALL"
-                    ]
-                }
-            ]
+          "order": 2,
+          "title": "监控",
+          "name": "metric",
+          "url": "/metric",
+          "templateUrl": "project/html/demo/metric.html",
+          "permission": [
+            "ALL"
+          ]
         },
         {
-            "order": 3,
-            "title": "示例2",
-            "icon": "bookmark",
-            "children": [
-                {
-                    "order": 1,
-                    "title": "Loading",
-                    "name": "loading",
-                    "url": "/loading",
-                    "templateUrl": "project/html/demo/loading.html",
-                    "permission": [
-                        "LOADING:READ"
-                    ]
-                },
-                {
-                    "order": 2,
-                    "title": "other",
-                    "name": "other",
-                    "url": "/other",
-                    "templateUrl": "project/html/demo/other.html",
-                    "permission": [
-                        "OTHER:READ"
-                    ]
-                }
-            ]
+          "order": 3,
+          "title": "Stepper",
+          "name": "stepper",
+          "url": "/stepper",
+          "templateUrl": "project/html/demo/stepper.html",
+          "permission": [
+            "ALL"
+          ]
+        },
+        {
+          "order": 4,
+          "title": "按钮",
+          "name": "button",
+          "url": "/button",
+          "templateUrl": "project/html/demo/buttons.html",
+          "permission": [
+            "ALL"
+          ]
+        },
+        {
+          "order": 5,
+          "title": "树",
+          "name": "tree",
+          "url": "/tree",
+          "templateUrl": "project/html/demo/tree.html",
+          "permission": [
+            "ALL"
+          ]
+        },
+        {
+          "order": 6,
+          "title": "Notification",
+          "name": "notice",
+          "url": "/notice",
+          "templateUrl": "project/html/demo/notification.html",
+          "permission": [
+            "ALL"
+          ]
+        },
+        {
+          "order": 7,
+          "title": "选择添加",
+          "name": "choose",
+          "url": "/choose",
+          "templateUrl": "project/html/demo/choose.html",
+          "permission": [
+            "ALL"
+          ]
+        },
+        {
+          "order": 8,
+          "title": "拖拽",
+          "name": "drag",
+          "url": "/drag",
+          "templateUrl": "project/html/demo/drag.html",
+          "permission": [
+            "ALL"
+          ]
+        },
+        {
+          "order": 9,
+          "title": "流程管理",
+          "name": "flow_manager",
+          "url": "/flow",
+          "templateUrl": "web-public/fit2cloud/html/process/process-management.html",
+          "permission": [
+            "FLOW_MANAGER"
+          ]
+        },
+        {
+          "order": 10,
+          "title": "文件上传",
+          "name": "file",
+          "url": "/file",
+          "templateUrl": "project/html/demo/file.html",
+          "permission": [
+            "ALL"
+          ]
         }
-    ],
-    "permissionList": [
+      ]
+    },
+    {
+      "order": 3,
+      "title": "示例2",
+      "icon": "bookmark",
+      "children": [
         {
-            "id": "DASHBOARD:READ",
-            "name": "仪盘表",
-            "menu": "仪盘表",
-            "roles": [
-                "ADMIN"
-            ]
+          "order": 1,
+          "title": "Loading",
+          "name": "loading",
+          "url": "/loading",
+          "templateUrl": "project/html/demo/loading.html",
+          "permission": [
+            "LOADING:READ"
+          ]
         },
         {
-            "id": "TABLE:READ",
-            "name": "表格",
-            "menu": "表格",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "CLOUD_SERVER:READ",
-            "name": "查看云主机",
-            "menu": "云主机",
-            "roles": [
-                "ADMIN",
-                "ORGADMIN"
-            ]
-        },
-        {
-            "id": "METRIC:READ",
-            "name": "监控",
-            "menu": "监控",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "STEPPER:READ",
-            "name": "Stepper",
-            "menu": "Stepper",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "BUTTON:READ",
-            "name": "按钮",
-            "menu": "按钮",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "TREE:READ",
-            "name": "树",
-            "menu": "树",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "NOTICE:READ",
-            "name": "提示",
-            "menu": "提示",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "CHOOSE:READ",
-            "name": "选择添加",
-            "menu": "选择添加",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "DRAG:READ",
-            "name": "拖拽",
-            "menu": "拖拽",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "FLOW",
-            "name": "流程管理",
-            "menu": "流程管理",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "LOADING:READ",
-            "name": "loading",
-            "menu": "loading",
-            "roles": [
-                "ADMIN"
-            ]
-        },
-        {
-            "id": "OTHER:READ",
-            "name": "other",
-            "menu": "other",
-            "roles": [
-                "ADMIN"
-            ]
+          "order": 2,
+          "title": "other",
+          "name": "other",
+          "url": "/other",
+          "templateUrl": "project/html/demo/other.html",
+          "permission": [
+            "OTHER:READ"
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }

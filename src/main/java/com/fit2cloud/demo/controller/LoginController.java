@@ -24,11 +24,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Author: chunxing
- * Date: 2018/5/9  下午1:05
- * Description:
- */
 @Api(value = "Login", tags = {"login"})
 @Controller
 @RequestMapping(headers = "Accept=application/json")

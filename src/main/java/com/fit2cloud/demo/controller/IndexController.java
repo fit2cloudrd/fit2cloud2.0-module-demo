@@ -29,4 +29,9 @@ public class IndexController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/swagger", method = RequestMethod.GET)
+    public String swagger() {
+        return "swagger";
+    }
+
 }

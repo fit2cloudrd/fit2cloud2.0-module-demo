@@ -68,11 +68,11 @@
 
   @F2CPermission：作用于method，主要做了两件事，将权限加到serverInfo以及找到对应的菜单和验证当前请求有没有权限，属性如下
   
-  - id：权限ID(权限ID之间存在依赖会形成一棵树，很重要,操作的依赖只能2个操作依赖，不能多级依赖)
+  - id：权限ID(资源:操作...+资源:操作...)
       - 资源：操作 USER_ADMIN:READ 用户的查看权限
       - 资源：操作1+操作2  USER_ADMIN:READ+CREATE 用户的创建，前提是依赖于用户的查看权限，这是同资源的权限依赖
-      - 资源1：操作+资源2：操作  PHYSICAL_MACHINE:READ+RULE:READ+CREATE  物理机发现规则的创建权限依赖于其读的权限，并且依赖于物理机的读权限，这是不同资源之间的依赖
-  - name：权限名称
+  - resource：资源
+  - desc：操作描述
   - menu：对应的菜单name，默认为空（权限基本上会对应到菜单）
   - roles：这是指定当前权限所对应的角色，这里的角色是系统的内置角色。顺便说下，在新建角色的时候都是依赖于系统内置角色来建。默认为ADMIN
   - logical：当类上有@F2CRoles注解时才生效，就是2个角色列表运算结果,默认为HIDE
@@ -83,20 +83,25 @@
       - HIDE：隐藏
       
   
-  @F2CRequiresPermissions：作用于method，主要声明@F2CPermission数组和Logical，也会校验权限和把@F2CPermission数组加到ServerInfo，属性如下：
+  @F2CPermissions：作用于method，主要声明@F2CPermission数组和Logical，也会校验权限和把@F2CPermission数组加到ServerInfo，属性如下：
   
   - value：F2CPermission[]
-  - logical：验证权限的时候多个F2CPermission的关系，默认为OR
+  - logical：验证权限的时候多个F2CPermission的关系，默认为AND
   
   
   @F2CMenu：作用于Class，主要是给整个类声明权限对应的菜单，就可以不用在@F2CPermission自己定义。如果在@F2CPermission里设置了值，会覆盖作用于类上@F2CMenu的菜单
   
-  @F2CNode：作用于method，被依赖的权限@F2CPermission上加上这个注解，主要用于权限树。
-  
   @F2CRoles：作用于Class，给整个类声明权限对应的角色，@F2CPermission里的logical就起作用了，使@F2CRoles和@F2CPermission里指定的角色做运算
   
  
- #### 权限接口
+#### 权限注意事项
+  
+   - @F2CPermissions 和@F2CPermission 不能同时作用于一个方法上，最好只用@F2CPermission。多个@F2CPermission会自动合并成@F2CPermissions。
+   - @RequiresPermissions和@F2CPermission、@F2CPermission共存一个方法，此时@F2CPermission、@F2CPermissions将不再具有权限校验功能，只有申明功能
+   - 当不需要将权限加到serverInfo(已经加入)，最好直接用shiro的@RequiresPermissions注解来校验权限
+   - Java8 提供重复注解@Repeatble。所以在方法上注解多个@F2CPermission，会自动编译成@F2CPermissions。注意这里多个@F2CPermission之间的关系是AND，如果想用OR就不能这样写。
+
+#### 权限接口
  
  ```java
 public interface F2CServerInfoConfig {
@@ -111,16 +116,8 @@ public interface F2CServerInfoConfig {
     }
 }
 ``` 
-实现F2CServerInfoConfig接口，可以对应Menu和Permission进行操作(所有的权限和菜单，当前模块)
-  
+实现F2CServerInfoConfig接口，可以对应Menu和Permission进行操作(所有的权限和菜单，当前模块,@EventListener)  
  
-
-#### 权限注意事项
-
-   - @F2CPermission、@F2CRequiresPermissions、@RequiresPermissions（shiro）这3个注解在同一个方法上只能注解一个
-   - 权限定义只能注解定义一次(@F2CPermission、@F2CRequiresPermissions)，后续使用请用RequiresPermissions注解去校验
-   - Java8 提供重复注解@Repeatble。所以在方法上注解多个@F2CPermission，会自动编译成@F2CRequiresPermissions。注意这里多个@F2CPermission之间的关系是OR，如果想用AND就不能这样写。
-
 #### 前端页面
 
   在前端页面已经写的有angular的指令
@@ -129,11 +126,6 @@ public interface F2CServerInfoConfig {
   - has-permissions：有其中一个权限的时候显示，主要是控制多个权限和去掉table的单选框、操作的列
   - lack-permission：没有这个权限的时候显示
   - lack-permissions：没有这里的所有权限的时候显示
-
-
-
-
-  
  
 
 
