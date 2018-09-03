@@ -1,0 +1,16 @@
+<div class="content-backdrop" ng-cloak>
+    <div cg-busy="{promise:loadingLayer,minDuration:500}">
+        <md-toolbar class="content-toolbar">
+            <div class="md-toolbar-tools">
+                <div>文件</div>
+            </div>
+        </md-toolbar>
+        <div class="md-padding" layout="column">
+            <form>
+                <md-file-chips multiple placeholder="上传文件" max-files="10" business-key="test1"></md-file-chips>
+            </form>
+        </div>
+    </div>
+</div>
+
+
