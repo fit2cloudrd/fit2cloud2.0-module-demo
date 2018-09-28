@@ -1,35 +1,13 @@
 package com.fit2cloud.demo.config;
 
 
-import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
-import com.fit2cloud.commons.server.constants.SessionConstants;
-import com.fit2cloud.commons.server.security.CookieIdGenerator;
-import com.fit2cloud.commons.server.security.SessionRedisDao;
 import com.fit2cloud.commons.server.security.SsoFilter;
-import com.fit2cloud.commons.utils.GlobalConfigurations;
-import org.apache.shiro.cache.MemoryConstrainedCacheManager;
-import org.apache.shiro.session.mgt.SessionManager;
-import org.apache.shiro.session.mgt.eis.MemorySessionDAO;
-import org.apache.shiro.spring.LifecycleBeanPostProcessor;
-import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.apache.shiro.web.servlet.SimpleCookie;
-import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
 
-import javax.servlet.DispatcherType;
-import javax.servlet.Filter;
-import java.util.EnumSet;
 import java.util.Map;
-import java.util.Objects;
 
 @Configuration
 public class ShiroConfig {
