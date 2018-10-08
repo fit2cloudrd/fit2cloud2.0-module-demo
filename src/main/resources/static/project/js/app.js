@@ -552,16 +552,6 @@ ProjectApp.controller('NotificationCtrl', function ($scope, Notification, $mdDia
         });
     };
 
-    $scope.getUserRoleList = function () {
-        $http.get("user/current/user/role").then(function (response) {
-            $scope.userRoleList = response.data.data;
-            $scope.handleUserRole();
-        }, function (data) {
-            $log.error("data", data);
-        });
-    };
-
-    $scope.getUserRoleList();
 
     $scope.count = 1;
     $scope.show = function () {
