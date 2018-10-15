@@ -1,7 +1,7 @@
-# fit2cloud2.0-DEMO
+# FIT2CLOUD 云管平台 2.0 扩展模块示范工程
 
 
-# FIT2CLOUD 2.0 DEMO
+# 目录
 
 - [要求](#要求)
 - [代码规范](#代码规范)
