@@ -1,0 +1,155 @@
+{
+  "version": "2.0",
+  "permissions": [
+    {
+      "id": "DEMO:DASHBOARD",
+      "name": "仪盘表",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:TABLE",
+      "name": "table",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:STEPPER",
+      "name": "stepper",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:BUTTON",
+      "name": "button",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:TREE",
+      "name": "tree",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:NOTICE",
+      "name": "notice",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:CHOOSE",
+      "name": "choose",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:DRAG",
+      "name": "drag",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:FILE",
+      "name": "file",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:LOADING",
+      "name": "loading",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "DEMO:OTHER",
+      "name": "other",
+      "resourceId": "DEMO",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    },
+    {
+      "id": "FLOW:READ",
+      "name": "查看流程",
+      "resourceId": "FLOW",
+      "parentRoles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "FLOW:MANAGER",
+      "name": "流程管理",
+      "resourceId": "FLOW",
+      "parentRoles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "CLOUD_SERVER:READ",
+      "name": "虚拟机监控",
+      "resourceId": "CLOUD_SERVER",
+      "parentRoles": [
+        "ADMIN",
+        "ORGADMIN",
+        "USER"
+      ]
+    }
+  ],
+  "resource": [
+    {
+      "id": "DEMO",
+      "name": "demo"
+    },
+    {
+      "id": "FLOW",
+      "name": "流程管理"
+    },
+    {
+      "id": "CLOUD_SERVER",
+      "name": "虚拟机"
+    }
+  ]
+}

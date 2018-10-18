@@ -1,0 +1,396 @@
+{
+  "version": "2.0",
+  "menu": [
+    {
+      "order": 1,
+      "title": "仪表盘",
+      "icon": "account_box",
+      "url": "/dashboard",
+      "name": "dashboard",
+      "templateUrl": "project/html/demo/dashboard.html",
+      "requiredPermissions": [
+        {
+          "role": "ADMIN",
+          "logical": "OR",
+          "permissions": [
+            "DEMO:DASHBOARD"
+          ]
+        },
+        {
+          "role": "ORGADMIN",
+          "logical": "OR",
+          "permissions": [
+            "DEMO:DASHBOARD"
+          ]
+        },
+        {
+          "role": "USER",
+          "logical": "OR",
+          "permissions": [
+            "DEMO:DASHBOARD"
+          ]
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "示例1",
+      "icon": "cloud_queue",
+      "children": [
+        {
+          "order": 1,
+          "title": "表格",
+          "name": "table",
+          "url": "/table",
+          "templateUrl": "project/html/demo/table.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:TABLE"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:TABLE"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:TABLE"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "title": "监控",
+          "name": "metric",
+          "url": "/metric",
+          "templateUrl": "project/html/demo/metric.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "CLOUD_SERVER:READ"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "CLOUD_SERVER:READ"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "CLOUD_SERVER:READ"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "title": "Stepper",
+          "name": "stepper",
+          "url": "/stepper",
+          "templateUrl": "project/html/demo/stepper.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:STEPPER"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:STEPPER"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:STEPPER"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "title": "按钮",
+          "name": "button",
+          "url": "/button",
+          "templateUrl": "project/html/demo/buttons.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:BUTTON"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:BUTTON"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:BUTTON"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "title": "树",
+          "name": "tree",
+          "url": "/tree",
+          "templateUrl": "project/html/demo/tree.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:TREE"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:TREE"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:TREE"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "title": "Notification",
+          "name": "notice",
+          "url": "/notice",
+          "templateUrl": "project/html/demo/notification.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:NOTICE"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:NOTICE"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:NOTICE"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 7,
+          "title": "选择添加",
+          "name": "choose",
+          "url": "/choose",
+          "templateUrl": "project/html/demo/choose.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:CHOOSE"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:CHOOSE"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:CHOOSE"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 8,
+          "title": "拖拽",
+          "name": "drag",
+          "url": "/drag",
+          "templateUrl": "project/html/demo/drag.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:DRAG"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:DRAG"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:DRAG"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 9,
+          "title": "流程管理",
+          "name": "flow_manager",
+          "url": "/flow",
+          "templateUrl": "web-public/fit2cloud/html/process/process-management.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "FLOW:READ"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 10,
+          "title": "文件上传",
+          "name": "file",
+          "url": "/file",
+          "templateUrl": "project/html/demo/file.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:FILE"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:FILE"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:FILE"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "示例2",
+      "icon": "bookmark",
+      "children": [
+        {
+          "order": 1,
+          "title": "Loading",
+          "name": "loading",
+          "url": "/loading",
+          "templateUrl": "project/html/demo/loading.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:LOADING"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:LOADING"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:LOADING"
+              ]
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "title": "other",
+          "name": "other",
+          "url": "/other",
+          "templateUrl": "project/html/demo/other.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:OTHER"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:OTHER"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:OTHER"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
