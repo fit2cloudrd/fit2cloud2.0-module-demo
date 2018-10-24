@@ -20,7 +20,8 @@
                 <div>
                     设置宽读和高度：宽度500px(最小宽度400px)，高度400px(最小高度300px)，selected为所选对象
                 </div>
-                <choose items="items" display="name" key="id" selected="selected2" width="500px" height="400px" type="object"></choose>
+                <choose items="items" display="name" key="id" selected="selected2" width="500px" height="400px"
+                        type="object"></choose>
                 <div>
                     结果
                 </div>
@@ -28,4 +29,34 @@
             </div>
         </div>
     </md-content>
+
+
+    <md-input-container class="md-block" flex-gt-xs>
+        <label>下拉框1</label>
+        <md-select ng-model="item1.id" required multiple>
+            <md-option ng-value="param.id" ng-repeat="param in paramList | dbFilter:itemList:item1"
+            >{{param.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-xs>
+        <label>下拉框2</label>
+        <md-select ng-model="item2.id" required multiple>
+            <md-option ng-value="param.id" ng-repeat="param in paramList | dbFilter:itemList:item2"
+            >
+                {{param.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-xs>
+        <label>下拉框3</label>
+        <md-select ng-model="item3.id" required multiple>
+            <md-option ng-value="param.id" ng-repeat="param in paramList | dbFilter:itemList:item3"
+            >
+                {{param.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
 </div>

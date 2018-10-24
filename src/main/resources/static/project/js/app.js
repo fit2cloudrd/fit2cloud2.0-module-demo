@@ -601,6 +601,33 @@ ProjectApp.controller('ChooseCtrl', function ($scope, HttpUtils) {
         {id: 1, name: "长长长长长长长长长长长长长长长长长长长长长长长长长长长看不见"},
         {id: 4, name: "444"}
     ];
+
+    $scope.paramList = [
+        {
+            id: "1",
+            name: "测试1"
+        },
+        {
+            id: "2",
+            name: "测试2"
+        }, {
+            id: "3",
+            name: "测试3"
+        }, {
+            id: "4",
+            name: "测试4"
+        }
+    ];
+
+    $scope.item1 = {};
+    $scope.item2 = {};
+    $scope.item3 = {};
+
+    $scope.itemList = [];
+    $scope.itemList.push($scope.item1);
+    $scope.itemList.push($scope.item2);
+    $scope.itemList.push($scope.item3);
+
 });
 
 ProjectApp.controller('DragCtrl', function ($scope) {
@@ -625,4 +652,26 @@ ProjectApp.controller('DragCtrl', function ($scope) {
         {id: 7, name: "777"},
         {id: 8, name: "888"}
     ];
+});
+
+ProjectApp.filter("dbFilter", function () {
+    return function (collection, items, item) {
+        console.log(collection);
+        console.log(items);
+        let output = [];
+        angular.forEach(collection, function (c) {
+            let flag = true;
+            angular.forEach(items, function (it) {
+                if (it.id && it.id.indexOf(c.id) != -1 && !(item.id && item.id.indexOf(c.id) != -1)) {
+                    flag = false;
+                }
+            });
+            if (flag) {
+                output.push(c);
+            }
+        });
+
+        return output;
+
+    }
 });
