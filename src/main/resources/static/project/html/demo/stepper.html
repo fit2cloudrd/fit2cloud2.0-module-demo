@@ -5,59 +5,26 @@
             <md-button class="md-raised" ng-click="open()" ng-if="!show">打开向导</md-button>
         </div>
     </md-toolbar>
-    <div wizard="wizard" ng-if="show">
-        <wizard-step id="1">
-            <form name="testForm" class="md-padding">
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>姓名</label>
-                        <input md-maxlength="30" required name="name" ng-model="item.name">
-                        <div ng-messages="testForm.name.$error">
-                            <div ng-message="required">必填.</div>
-                            <div ng-message="md-maxlength">不要超过30个字符</div>
-                        </div>
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>创建日期</label>
-                        <md-datepicker ng-model="item.created" required name="created"></md-datepicker>
-                        <div ng-messages="testForm.created.$error">
-                            <div ng-message="required">必填.</div>
-                        </div>
-                    </md-input-container>
-                </div>
-
-                <md-input-container class="md-block">
-                    <label>Email</label>
-                    <input required type="email" name="email" ng-model="item.email"
-                           minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
-
-                    <div class="hint">邮箱将用做登录的唯一标识</div>
-
-                    <div ng-messages="testForm.email.$error" role="alert">
-                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                            邮件必须符合邮件格式，并且在10-100字符以内
-                        </div>
-                    </div>
-                </md-input-container>
-
-                <md-input-container class="md-block">
-                    <lf-ng-md-file-input lf-files='file' lf-placeholder="请选择文件"></lf-ng-md-file-input>
-                </md-input-container>
-
-                <md-switch class="md-primary" aria-label="enable" ng-model="item.enable">
-                    是否启用
-                </md-switch>
-            </form>
-        </wizard-step>
-        <wizard-step id="2">
-            2222
-        </wizard-step>
-        <wizard-step id="3">
-            异步验证
-        </wizard-step>
-        <wizard-step id="4">
-            4444
-        </wizard-step>
-    </div>
+    <md-content flex="auto">
+        <div wizard="wizard" ng-if="show">
+            <wizard-step id="1">
+                aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>
+                aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>
+                aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>
+                aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>
+                aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>
+                aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>
+                aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>
+            </wizard-step>
+            <wizard-step id="2">
+                2222
+            </wizard-step>
+            <wizard-step id="3">
+                异步验证
+            </wizard-step>
+            <wizard-step id="4">
+                4444
+            </wizard-step>
+        </div>
+    </md-content>
 </div>
