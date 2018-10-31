@@ -56,9 +56,16 @@
 
 ## 本地环境编译、运行与测试
 
+### 创建和初始化数据库
+
+根据各自的情况创建数据库，执行下面的命令初始化 database：
+```
+CREATE DATABASE `fit2cloud` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+```
+
 ### 创建本地2.0配置文件
 
-FIT2CLOUD 2.0 的配置文件存放路径为 /opt/fit2cloud/conf/fit2cloud.properties，拷贝以下内容并保存:
+FIT2CLOUD 2.0 的配置文件存放路径为 /opt/fit2cloud/conf/fit2cloud.properties，拷贝以下内容并保存(相关组件的配置请参考实际情况进行设置):
 ```
 #CMP DB configs
 rdb.driver=com.mysql.jdbc.Driver
