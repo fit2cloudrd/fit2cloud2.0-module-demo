@@ -114,8 +114,6 @@ prometheus.pushgateway.host=localhost:53341
 
 以 IDEA 为例，可以在 IDEA 的 maven 插件中，以 debug 模式运行工程进行调试。
 
-在工程目录下有服务配置文件 src/main/resources/application.properties，本地开发时将 eureka.client.enabled 参数设置为 false，当进行服务发布做包时，将该参数值设置为 true，进行服务注册。
-
 ## 实际环境部署与升级
 
 ### 工程文件说明
