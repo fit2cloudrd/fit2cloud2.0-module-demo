@@ -5,10 +5,7 @@
 
 - [技能要求](#技能要求)
 - [代码规范](#代码规范)
-- [首页模式](#首页模式)
 - [全局处理](#全局处理)
-- [前端页面](#前端页面)
-- [注意事项](#注意事项)
 - [编译打包](#编译打包)
 - [本地环境运行与测试](#本地环境运行与测试)
 - [实际环境部署与升级](#实际环境部署与升级)
@@ -29,29 +26,16 @@
 - js: 常量使用全大写，下划线分隔单词的命名，例如 var MAX_HEIGHT=1000
 
 
-## 首页模式
-
-每个工程的首页默认不显示公共菜单，需要引入 web-public 的jar包，启动后输入<hostname:port>/web-public可以看到公共菜单的首页。
-
 ## 全局处理
 
 - 后台代码对 @RestController结果集进行了统一封装成 ResultHolder,如果自己返回 ResultHolder,则不会封装。如果需要包装的数据,method 返回类型不要是Object的(new Object()和 null 不会包装，1.返回的 type 不是 application/json 2.没有对应的 Object.class 的 HttpMessageConverter)
 - 后台代码做了全局异常处理
 - 前台 HttpUtils的 post, get 都做了错误处理（只有 ResultHolder 的 success 为 false 时，当做错误处理）,如果需要重新定义错误可以用 error 的 function 接受,没有 error function 或自己弹出后台的错误信息
-
-## 前端页面
-
-  在前端页面已经写的有 angular 的指令
-  
+- 在前端页面已经写的有 angular 的指令 
   - has-permission：有这个权限的时候显示 单个权限  
   - has-permissions：有其中一个权限的时候显示，主要是控制多个权限和去掉table的单选框、操作的列
   - lack-permission：没有这个权限的时候显示
   - lack-permissions：没有这里的所有权限的时候显示
- 
-
-## 注意事项
-
-- Form 表单，当表单内容多于8项，或者需要二次交互（弹出窗口或内容有表格，并需要操作表格等）时不使用弹出窗口的方式显示表单，直接在主页面显示。
 
 
 ## 本地环境编译、运行与测试
@@ -62,6 +46,7 @@
 ```
 CREATE DATABASE `fit2cloud` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 ```
+初始数据表可以从已安装的 FIT2CLOUD 2.0 云管平台服务器上导出。
 
 ### 创建本地2.0配置文件
 
@@ -128,8 +113,6 @@ prometheus.pushgateway.host=localhost:53341
 ### 测试
 
 以 IDEA 为例，可以在 IDEA 的 maven 插件中，以 debug 模式运行工程进行调试。
-
-在工程目录下有服务配置文件 src/main/resources/application.properties，本地开发时将 eureka.client.enabled 参数设置为 false，当进行服务发布做包时，将该参数值设置为 true，进行服务注册。
 
 ## 实际环境部署与升级
 
