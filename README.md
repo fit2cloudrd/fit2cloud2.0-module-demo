@@ -29,6 +29,7 @@
 ## 全局处理
 
 - 后台代码对 @RestController结果集进行了统一封装成 ResultHolder,如果自己返回 ResultHolder,则不会封装。如果需要包装的数据,method 返回类型不要是Object的(new Object()和 null 不会包装，1.返回的 type 不是 application/json 2.没有对应的 Object.class 的 HttpMessageConverter)
+- 如果不想返回结果被分装，可以在Controller的method上加@NoResultHolder注解
 - 后台代码做了全局异常处理
 - 前台 HttpUtils的 post, get 都做了错误处理（只有 ResultHolder 的 success 为 false 时，当做错误处理）,如果需要重新定义错误可以用 error 的 function 接受,没有 error function 或自己弹出后台的错误信息
 - 在前端页面已经写的有 angular 的指令 
