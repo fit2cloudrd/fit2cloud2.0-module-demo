@@ -15,9 +15,10 @@
 
 ## 技能要求
 
-- 掌握 [Angular JS 1.6.9](https://angular.io/) 的内容(此框架的不同版本差异较大，本文基于用 1.6.9)。
+- 掌握 [Angular JS 1.7.2](https://angular.io/) 的内容(此框架的不同版本差异较大，本文基于用 1.7.2)。
 - 掌握 [Angular JS Material 1.1.9](https://material.angularjs.org/) 的内容。
-- 开发时如需自动提示 Angular 相关内容，可以 npm install angular@1.6.9 和 npm install angular-material, 安装后务必在 .gitignore 文件中添加package-lock.json 和 node_modules (Demo 工程已经添加)
+- 开发时如需自动提示 Angular 相关内容，可以 npm install angular@1.7.2 和 npm install angular-material, 安装后务必在 .gitignore 文件中添加package-lock.json 和 node_modules (Demo
+ 工程已经添加)
 - 本项目使用 [Spring Boot 2.0](https://spring.io) 作为基础框架并集成 `thymeleaf` 、 `shiro` 、 `quartz` 和 `mail` 等功能。
 
 ## 代码规范
