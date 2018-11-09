@@ -1,0 +1,5 @@
+name=模板工程服务
+description=FIT2CLOUD 云管平台 2.0 的扩展模块示例工程。
+minimumFit2cloudVersion=V2.0.60
+version=2.0.0
+version=
