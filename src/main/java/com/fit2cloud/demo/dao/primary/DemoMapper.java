@@ -1,9 +1,10 @@
-package com.fit2cloud.demo.dao;
+package com.fit2cloud.demo.dao.primary;
 
 import com.fit2cloud.demo.model.Demo;
 import com.fit2cloud.demo.model.DemoExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface DemoMapper {
     /**
