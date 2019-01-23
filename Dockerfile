@@ -1,4 +1,4 @@
-FROM registry.fit2cloud.com/public/fabric8-java-alpine-openjdk8-jre:lastet
+FROM registry.fit2cloud.com/public/fabric8-java-alpine-openjdk8-jre:latest
 
 MAINTAINER FIT2CLOUD <support@fit2cloud.com>
 
