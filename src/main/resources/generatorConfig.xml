@@ -11,6 +11,7 @@
         <plugin type="com.fit2cloud.tools.mybatis.swagger.ImportSwaggerPlugin"/>
         <plugin type="com.fit2cloud.tools.mybatis.SqlCriterionGeneratorPlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
 
         <!-- 用来除去时间信息的，这在配合类似subversion的代码管理工具时使用很有效，因为可以减少没有必要的注释迁入 -->
         <commentGenerator type="com.fit2cloud.tools.mybatis.swagger.ApiModelPropertyAnnotationGenerator">
