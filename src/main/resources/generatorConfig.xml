@@ -2,7 +2,6 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-    <!--  关闭自动生成的注释  -->
     <!--配置数据库连接的位置-->
     <properties url="file:///opt/fit2cloud/conf/fit2cloud.properties"/>
     <!-- 设置mysql驱动路径 -->
@@ -12,10 +11,13 @@
         <plugin type="com.fit2cloud.tools.mybatis.swagger.ImportSwaggerPlugin"/>
         <plugin type="com.fit2cloud.tools.mybatis.SqlCriterionGeneratorPlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
 
         <!-- 用来除去时间信息的，这在配合类似subversion的代码管理工具时使用很有效，因为可以减少没有必要的注释迁入 -->
         <commentGenerator type="com.fit2cloud.tools.mybatis.swagger.ApiModelPropertyAnnotationGenerator">
             <property name="suppressDate" value="true"/>
+            <!--  关闭自动生成的注释  -->
+            <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!-- jdbc连接信息 --> <!-- EduLoanManage EduTestDataBase -->
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.20.180:3306/fit2cloud"-->
@@ -42,7 +44,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-         <!--要生成的数据库表 -->
+        <!--要生成的数据库表 -->
         <table tableName="demo"/>
     </context>
 </generatorConfiguration>
