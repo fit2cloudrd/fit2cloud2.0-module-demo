@@ -11,7 +11,7 @@ import java.util.List;
  * 配置加密
  */
 @Component
-public class DemoDBEncryptConfig implements DBEncryptConfig {
+public class CustomDBEncryptConfig implements DBEncryptConfig {
     @Override
     public List<EncryptConfig> encryptConfig() {
         return new ArrayList<>();

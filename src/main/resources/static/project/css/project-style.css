@@ -7,7 +7,7 @@
 **/
 
 
-table.db{
+table.db {
     font-size: 13px;
     font-weight: 400;
     letter-spacing: .01em;
@@ -23,7 +23,7 @@ table.db{
     vertical-align: baseline;
 }
 
-table.db tbody,thead,tr{
+table.db tbody, thead, tr {
     border: 0;
     font-family: inherit;
     font-size: 100%;
@@ -35,7 +35,7 @@ table.db tbody,thead,tr{
     vertical-align: baseline;
 }
 
-table.db td{
+table.db td {
     max-width: none;
     min-width: 0px;
     white-space: normal;
@@ -45,4 +45,30 @@ table.db td{
     padding: 4px 16px;
     text-align: left;
     width: auto;
+}
+
+
+.item-info {
+    border: 1px solid #DFDFDF;
+    margin-bottom: 10px;
+    width: calc(100% - 2px);
+}
+
+.item-info .table > tbody > tr:nth-child(odd) {
+    background-color: white;
+}
+
+.item-info .table > tbody > tr > td {
+    border-top: 1px solid #DFDFDF;
+}
+
+.item-info .item-info-label {
+    font-weight: bold;
+    text-align: right;
+    width: 30%;
+}
+
+.item-info .item-info-value {
+    text-align: left;
+    width: 70%;
 }

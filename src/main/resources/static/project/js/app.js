@@ -675,3 +675,14 @@ ProjectApp.filter("dbFilter", function () {
 
     }
 });
+
+ProjectApp.controller("SidenavController", function ($scope,$mdSidenav) {
+    $scope.openSidenav = function () {
+        $scope.demoUrl = 'project/html/demo/sidenav/sidenav-info.html' + '?_t=' + Math.random();
+        $mdSidenav("_side_form_demo_info").toggle();
+    };
+
+    $scope.toggleFormDemoInfo = function () {
+        $mdSidenav("_side_form_demo_info").toggle();
+    }
+});

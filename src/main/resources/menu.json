@@ -322,6 +322,36 @@
               ]
             }
           ]
+        },
+        {
+          "order": 11,
+          "title": "文件上传",
+          "name": "sidenav",
+          "url": "/sidenav",
+          "templateUrl": "project/html/demo/sidenav/sidenav.html",
+          "requiredPermissions": [
+            {
+              "role": "ADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:FILE"
+              ]
+            },
+            {
+              "role": "ORGADMIN",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:FILE"
+              ]
+            },
+            {
+              "role": "USER",
+              "logical": "OR",
+              "permissions": [
+                "DEMO:FILE"
+              ]
+            }
+          ]
         }
       ]
     },

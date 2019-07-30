@@ -1,0 +1,13 @@
+<div layout-fill ng-cloak ng-controller="SidenavController">
+    <div layout="column">
+        <div flex="auto">
+            <md-button class="md-raised" ng-click="openSidenav()">md-primary</md-button>
+        </div>
+    </div>
+    <md-sidenav class="md-sidenav-right side-form" md-component-id="_side_form_demo_info" md-whiteframe="4"
+                style="min-width: 70%">
+        <div ng-include="demoUrl" style="height: 100%"></div>
+    </md-sidenav>
+</div>
+
+
