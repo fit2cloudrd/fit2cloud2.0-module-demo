@@ -71,4 +71,5 @@ table.db td {
 .item-info .item-info-value {
     text-align: left;
     width: 70%;
+    padding-left: 20px;
 }
