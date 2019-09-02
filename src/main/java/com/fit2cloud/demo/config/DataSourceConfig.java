@@ -67,9 +67,11 @@ public class DataSourceConfig {
     }
 
     @Bean
-    public SqlSessionFactory optionalSqlSessionFactory(@Qualifier("optionalDataSource") DataSource optionalDataSource) throws Exception {
+    public SqlSessionFactory optionalSqlSessionFactory(@Qualifier("optionalDataSource") DataSource optionalDataSource, Interceptor[] interceptors) throws Exception {
         SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
         factory.setDataSource(optionalDataSource);
+        factory.setVfs(SpringBootVFS.class);
+        factory.setPlugins(interceptors);
         // todo 自行添加其他参数
         return factory.getObject();
     }

@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Repository
 public interface OptionalDemoMapper {
-    @Select("SELECT * FROM demo")
+    @Select("SELECT * FROM user")
     List<Demo> selectAll();
 }
