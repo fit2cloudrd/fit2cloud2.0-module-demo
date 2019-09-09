@@ -62,7 +62,8 @@ public class MybatisConfig {
         factory.setDataSource(dataSource);
         factory.setVfs(SpringBootVFS.class);
         // todo 自行添加其他参数
-        Interceptor[] plugins = new Interceptor[]{dbEncryptInterceptor, pageInterceptor};
+        // 分页插件需要写在第一个，具体原因看 https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/Interceptor.md
+        Interceptor[] plugins = new Interceptor[]{pageInterceptor, dbEncryptInterceptor};
         factory.setPlugins(plugins);
         return factory.getObject();
     }
