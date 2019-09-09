@@ -50,6 +50,7 @@ public class OptionalMybatisConfig {
         factory.setDataSource(optionalDataSource);
         factory.setVfs(SpringBootVFS.class);
         // todo 自行添加其他参数
+        // 分页插件需要写在第一个，具体原因看 https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/Interceptor.md
         Interceptor[] plugins = new Interceptor[]{pageInterceptor};
         factory.setPlugins(plugins);
         return factory.getObject();
