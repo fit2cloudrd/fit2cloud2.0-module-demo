@@ -1,5 +1,6 @@
 package com.fit2cloud.demo.config;
 
+import com.fit2cloud.quartz.anno.QuartzDataSource;
 import com.github.pagehelper.PageInterceptor;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.ibatis.plugin.Interceptor;
@@ -33,6 +34,7 @@ public class OptionalMybatisConfig {
      * 创建数据源
      */
     @Bean
+    @QuartzDataSource // 指定 quartz 的数据库连接池
     public DataSource optionalDataSource() throws Exception {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         dataSource.setUser(env.getProperty("optional.rdb.user"));
